@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
         updateUIFor(login: true)
         setUpTextFieldDelegate()
         setUpBackgroundTap()
+     
     }
     
     
@@ -73,8 +74,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: isLogin ? "Login" : "Registration") {
-            // Login or register
-            print("Have data for login/register")
+            isLogin ? loginUser() : registerUser()
         } else {
             ProgressHUD.showFailed("All fields are reuquired.")
         }
@@ -157,6 +157,37 @@ class LoginViewController: UIViewController {
             return emailTextField.text != "" && passwordTextField.text != "" && repeatPasswordTextField.text != ""
         default:
             return emailTextField.text != ""
+        }
+    }
+    
+    private func loginUser() {
+        FirebaseUserListener.shared.loginUserWithEmail(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
+            
+            if error == nil {
+                if isEmailVerified {
+                    print("user has been ", User.currentUser?.email)
+                } else {
+                    ProgressHUD.showFailed("Please verify email.")
+                    self.resentEmailButtonOutlet.isHidden = false
+                }
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
+        }
+    }
+    
+    private func registerUser() {
+        if passwordTextField.text! == repeatPasswordTextField.text! {
+            FirebaseUserListener.shared.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+                if error == nil {
+                    ProgressHUD.showSuccess("Verification email sent.")
+                    self.resentEmailButtonOutlet.isHidden = false
+                } else {
+                    ProgressHUD.showFailed(error?.localizedDescription)
+                    }
+                }
+            } else {
+                ProgressHUD.showError("The password don't match!")
         }
     }
 }
