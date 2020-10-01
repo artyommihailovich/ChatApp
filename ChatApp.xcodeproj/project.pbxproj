@@ -82,11 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				A4CB960B25208DEC00422665 /* Model */,
+				A4C7A88625257E4A003892B6 /* Helpers */,
 				A4CB96152520A7FB00422665 /* FirebaseHelpers */,
 				A41750B4251F2BA900AF63E2 /* AppDelegate.swift */,
 				A41750B6251F2BA900AF63E2 /* SceneDelegate.swift */,
 				A41750B8251F2BA900AF63E2 /* LoginViewController.swift */,
-				A4CB960F2520939D00422665 /* Constants.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
 				A41750BD251F2BAB00AF63E2 /* Assets.xcassets */,
 				A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */,
@@ -94,6 +94,14 @@
 				A41750C2251F2BAB00AF63E2 /* Info.plist */,
 			);
 			path = ChatApp;
+			sourceTree = "<group>";
+		};
+		A4C7A88625257E4A003892B6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A4CB960F2520939D00422665 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A4CB960B25208DEC00422665 /* Model */ = {
