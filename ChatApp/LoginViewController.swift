@@ -56,7 +56,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "Password") {
+            
             // Reset password
+            resetPassword()
             print("Have data for forgot password")
         } else {
             ProgressHUD.showFailed("Email is reuquired.")
@@ -65,7 +67,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func resendEmailButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "Password") {
-            // Resend verification email
+            
+            resendVerificationEmail()
             print("Have data for resend password")
         } else {
             ProgressHUD.showFailed("Email is reuquired.")
@@ -165,7 +168,8 @@ class LoginViewController: UIViewController {
             
             if error == nil {
                 if isEmailVerified {
-                    print("user has been ", User.currentUser?.email)
+                    
+                    self.goToApp()
                 } else {
                     ProgressHUD.showFailed("Please verify email.")
                     self.resentEmailButtonOutlet.isHidden = false
@@ -189,5 +193,37 @@ class LoginViewController: UIViewController {
             } else {
                 ProgressHUD.showError("The password don't match!")
         }
+    }
+    
+    private func resetPassword() {
+        FirebaseUserListener.shared.resetPasswordFor(email: emailTextField.text!) { (error) in
+            
+            if error == nil {
+                ProgressHUD.showSuccess("Reset link sent to email.")
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
+        }
+    }
+    
+    private func resendVerificationEmail() {
+        FirebaseUserListener.shared.resendVerificationEmail(email: emailTextField.text!) { (error) in
+            
+            if error == nil {
+                ProgressHUD.showSuccess("New verification email sent.")
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
+        }
+    }
+    
+    
+    //MARK: - Navigation
+    
+    private func goToApp() {
+        let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as! UITabBarController
+        
+        mainView.modalPresentationStyle = .fullScreen
+        self.present(mainView, animated: true, completion: nil)
     }
 }
