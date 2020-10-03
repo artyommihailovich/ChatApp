@@ -15,6 +15,7 @@
 		A41750BE251F2BAB00AF63E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41750BD251F2BAB00AF63E2 /* Assets.xcassets */; };
 		A41750C1251F2BAB00AF63E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */; };
 		A41750EB251F30BC00AF63E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A41750EA251F30BC00AF63E2 /* GoogleService-Info.plist */; };
+		A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */; };
 		A4CB960925208DE800422665 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960825208DE800422665 /* User.swift */; };
 		A4CB96102520939E00422665 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960F2520939D00422665 /* Constants.swift */; };
 		A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB96122520A6C100422665 /* FCollectionReference.swift */; };
@@ -33,6 +34,7 @@
 		A41750C0251F2BAB00AF63E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A41750C2251F2BAB00AF63E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41750EA251F30BC00AF63E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A4CB960825208DE800422665 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A4CB960F2520939D00422665 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A4CB96122520A6C100422665 /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				A41750B4251F2BA900AF63E2 /* AppDelegate.swift */,
 				A41750B6251F2BA900AF63E2 /* SceneDelegate.swift */,
 				A41750B8251F2BA900AF63E2 /* LoginViewController.swift */,
+				A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
 				A41750BD251F2BAB00AF63E2 /* Assets.xcassets */,
 				A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
 				A4CB960925208DE800422665 /* User.swift in Sources */,
 				A41750B9251F2BA900AF63E2 /* LoginViewController.swift in Sources */,
+				A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */,
 				A41750B5251F2BA900AF63E2 /* AppDelegate.swift in Sources */,
 				A4CB961E2520A91200422665 /* FirebaseUserListener.swift in Sources */,
 				A41750B7251F2BA900AF63E2 /* SceneDelegate.swift in Sources */,

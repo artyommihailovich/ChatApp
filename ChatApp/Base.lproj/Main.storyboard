@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="2012" y="353"/>
         </scene>
-        <!-- -->
+        <!-- Settings-->
         <scene sceneID="2or-Sr-z5p">
             <objects>
-                <tableViewController id="jOe-uQ-EOr" sceneMemberID="viewController">
+                <tableViewController id="jOe-uQ-EOr" customClass="SettingsTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gDw-Ak-hHd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,8 +341,11 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPH-lR-rhJ">
                                                     <rect key="frame" x="16" y="7" width="323.66666666666669" height="30"/>
                                                     <state key="normal" title="Tell a friends">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tellAFriendsButtonPressed:" destination="jOe-uQ-EOr" eventType="touchUpInside" id="cgx-6k-BSv"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -362,8 +365,11 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTF-AA-9Ln">
                                                     <rect key="frame" x="16" y="7" width="323.66666666666669" height="30"/>
                                                     <state key="normal" title="Terms and conditions">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="termsAndConditionButtonPressed:" destination="jOe-uQ-EOr" eventType="touchUpInside" id="pj0-LK-gjd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -384,10 +390,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-Ld-Mle">
-                                                    <rect key="frame" x="16" y="12.333333333333334" width="351" height="19.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App version: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-Ld-Mle">
+                                                    <rect key="frame" x="16" y="13" width="351" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -406,11 +412,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w31-pY-9zC">
-                                                    <rect key="frame" x="16" y="7" width="351" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="16" y="5.6666666666666679" width="351" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <state key="normal" title="Log out">
                                                         <color key="titleColor" systemColor="systemPinkColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="logOutButtonPressed:" destination="jOe-uQ-EOr" eventType="touchUpInside" id="04Z-V4-PZa"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -428,7 +437,13 @@
                             <outlet property="delegate" destination="jOe-uQ-EOr" id="DPx-5V-ngE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title=" " id="Nmg-Ef-6kF"/>
+                    <navigationItem key="navigationItem" title=" Settings" id="Nmg-Ef-6kF"/>
+                    <connections>
+                        <outlet property="appVersionLabel" destination="CIL-Ld-Mle" id="3EX-R6-DFU"/>
+                        <outlet property="avatarImageView" destination="19e-Pk-Gxk" id="4jP-sC-nQS"/>
+                        <outlet property="statusLabel" destination="JnE-vq-2rq" id="5AO-j2-G6X"/>
+                        <outlet property="usernameLabel" destination="0SW-vq-XXj" id="VVo-pJ-WWt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OYC-Gn-uSo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -462,8 +477,11 @@
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
         <namedColor name="TableViewBackgroundColor">
-            <color red="0.94899999999999995" green="0.94899999999999995" blue="0.96899999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

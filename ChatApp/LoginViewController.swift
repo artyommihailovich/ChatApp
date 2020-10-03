@@ -10,9 +10,7 @@ import ProgressHUD
 
 class LoginViewController: UIViewController {
 
-    
     //MARK: - IBOutlets
-    
     
     // Labels
     @IBOutlet weak var emailLabelOutlet: UILabel!
