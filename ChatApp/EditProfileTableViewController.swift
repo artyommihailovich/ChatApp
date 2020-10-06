@@ -11,7 +11,6 @@ class EditProfileTableViewController: UITableViewController {
 
     //MARK: - IBOutlets
     
-    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -23,6 +22,13 @@ class EditProfileTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.tableFooterView = UIView()
+        
+        
+        configureTextField()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         showUserInfo()
     }
@@ -38,6 +44,16 @@ class EditProfileTableViewController: UITableViewController {
         return headerView
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // Clear huge spacer of header
+        return section == 0 ? 0.0 : 30
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //TODO: Show status view
+    }
     
     //MARK: - Update UI
     
@@ -51,5 +67,36 @@ class EditProfileTableViewController: UITableViewController {
                 // Set avatar
             }
         }
+    }
+    
+    
+    //MARK: - Configure
+    
+    func configureTextField(){
+        usernameTextField.delegate = self
+        usernameTextField.clearButtonMode = .whileEditing
+    }
+}
+
+
+    //MARK: - Extension
+
+extension EditProfileTableViewController: UITextFieldDelegate {
+    // Change keyboard button name
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            
+            if textField.text != "" {
+                
+                if var user = User.currentUser {
+                    user.username = textField.text!
+                    saveUserLocally(user)
+                    FirebaseUserListener.shared.saveUserToFirestore(user)
+                }
+            }
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }
