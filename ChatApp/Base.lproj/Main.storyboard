@@ -494,6 +494,9 @@
                                                     <state key="normal" title="Edit">
                                                         <color key="titleColor" name="label"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="editButtonPressed:" destination="lLs-tZ-Kpe" eventType="touchUpInside" id="gdZ-dJ-aVh"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
