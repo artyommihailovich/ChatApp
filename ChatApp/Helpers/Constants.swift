@@ -7,6 +7,7 @@
 
 import Foundation
 
- let userDefaults = UserDefaults.standard
-public let kCURRENTUSER = "currentUser"
+let userDefaults = UserDefaults.standard
 
+public let kCURRENTUSER = "currentUser"
+public let kFILEREFERENCE = "gs://chatapp-b5e53.appspot.com"

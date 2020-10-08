@@ -106,6 +106,24 @@ class EditProfileTableViewController: UITableViewController {
         
         self.present(gallery, animated: true, completion: nil)
     }
+    
+    
+    //MARK: - Upload images
+    
+    private func uploadAvatarImage(_ image: UIImage) {
+        let fileDirectory = "Avatars/" + "_\(User.currentId)" + ".jpg"
+        
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
+            
+            if var user = User.currentUser {
+                user.avatarLink = avatarLink ?? ""
+                saveUserLocally(user)
+                FirebaseUserListener.shared.saveUserToFirestore(user)
+            }
+            
+            //TODO: Save image locally?
+        }
+    }
 }
 
 
@@ -140,7 +158,7 @@ extension EditProfileTableViewController: GalleryControllerDelegate {
         if images.count > 0 {
             images.first!.resolve { (avatarImage) in
                 if avatarImage != nil {
-                    //TODO: upluad image
+                    self.uploadAvatarImage(avatarImage!)
                     self.avatarImageView.image = avatarImage
                 } else {
                     ProgressHUD.showError("Couldn't select something.")
