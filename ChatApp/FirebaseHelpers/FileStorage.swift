@@ -49,6 +49,49 @@ class FileStorage {
         }
     }
     
+    class func downloadImage(imageUrl: String, completion: @escaping (_ image: UIImage?) -> Void) {
+        let imageFileName = fileNameFrom(fileUrl: imageUrl)
+        
+        if fileExistAtPath(path: imageFileName) {
+            // get it locally
+           print("We have a local file")
+            
+            if let contentsOfFile = UIImage(contentsOfFile: fileInDocumentDirectory(fileName: imageFileName)) {
+                
+                completion(contentsOfFile)
+            } else {
+                print("Could not convert at image!")
+                completion(UIImage(named: "avatar"))
+            }
+        } else {
+            // download from firebase
+            print("Let's get file from firebase!")
+            
+            if imageUrl != "" {
+                let documentUrl = URL(string: imageUrl)
+                let downloadQueue = DispatchQueue(label: "imageDownloadQueue")
+                
+                downloadQueue.async {
+                    let data = NSData(contentsOf: documentUrl!)
+                    
+                    if data != nil {
+                        // Save locally
+                        FileStorage.saveFileLocally(fileData: data!, fileName: imageFileName)
+                        
+                        DispatchQueue.main.async {
+                            completion(UIImage(data: data! as Data))
+                        }
+                    } else {
+                        print("No document in database!")
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     //MARK: - Save locally
     
@@ -62,7 +105,7 @@ class FileStorage {
 
     //MARK: - Helpers
 
-    func fileDocumentDirectory(fileName: String) -> String {
+    func fileInDocumentDirectory(fileName: String) -> String {
         
         return getDocumentsURL().appendingPathComponent(fileName).path
         
@@ -75,7 +118,7 @@ class FileStorage {
 
     func fileExistAtPath(path: String) -> Bool {
 
-        return FileManager.default.fileExists(atPath: fileDocumentDirectory(fileName: path))
+        return FileManager.default.fileExists(atPath: fileInDocumentDirectory(fileName: path))
     }
 
     

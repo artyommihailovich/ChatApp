@@ -16,6 +16,7 @@
 		A41750C1251F2BAB00AF63E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */; };
 		A41750EB251F30BC00AF63E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A41750EA251F30BC00AF63E2 /* GoogleService-Info.plist */; };
 		A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */; };
+		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
 		A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */; };
 		A4CB960925208DE800422665 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960825208DE800422665 /* User.swift */; };
@@ -37,6 +38,7 @@
 		A41750C2251F2BAB00AF63E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41750EA251F30BC00AF63E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		A4CB960825208DE800422665 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A4CB960F2520939D00422665 /* Constants.swift */,
+				A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */,
 				A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */,
 				A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */,
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
