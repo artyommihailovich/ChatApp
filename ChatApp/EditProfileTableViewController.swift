@@ -121,7 +121,7 @@ class EditProfileTableViewController: UITableViewController {
                 FirebaseUserListener.shared.saveUserToFirestore(user)
             }
             
-            //TODO: Save image locally?
+            FileStorage.saveFileLocally(fileData: image.jpegData(compressionQuality: 1.0)! as NSData, fileName: User.currentId)
         }
     }
 }
@@ -158,6 +158,7 @@ extension EditProfileTableViewController: GalleryControllerDelegate {
         if images.count > 0 {
             images.first!.resolve { (avatarImage) in
                 if avatarImage != nil {
+                    //TODO: - Upload image
                     self.uploadAvatarImage(avatarImage!)
                     self.avatarImageView.image = avatarImage
                 } else {
