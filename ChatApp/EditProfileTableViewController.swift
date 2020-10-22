@@ -27,10 +27,7 @@ class EditProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.tableFooterView = UIView()
-        
-        
         configureTextField()
     }
     
@@ -81,7 +78,7 @@ class EditProfileTableViewController: UITableViewController {
             
             if user.avatarLink != "" {
                 FileStorage.downloadImage(imageUrl: user.avatarLink) { (avatarImage) in
-                    self.avatarImageView.image = avatarImage
+                    self.avatarImageView.image = avatarImage?.circleMasked
                 }
             }
         }
@@ -162,7 +159,7 @@ extension EditProfileTableViewController: GalleryControllerDelegate {
                 if avatarImage != nil {
                     //TODO: - Upload image
                     self.uploadAvatarImage(avatarImage!)
-                    self.avatarImageView.image = avatarImage
+                    self.avatarImageView.image = avatarImage?.circleMasked
                 } else {
                     ProgressHUD.showError("Couldn't select something.")
                 }
