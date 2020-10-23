@@ -59,3 +59,32 @@ struct User: Codable, Equatable {
 }
 
 
+    //MARK: - Create some dummy users
+
+func createDummyUsers() {
+    
+    print("Creating dummy users")
+    
+    let names = ["Ignat Voyna", "Egor Rezanov", "Ivan Novii", "Anton Bychok", "Sheck Sheck"]
+    
+    var imageIndex = 1
+    var userIndex = 1
+    
+    for i in 0..<5 {
+        let id = UUID().uuidString
+        
+        let fileDirrectory = "Avatars/" + "\(id)" + ".jpg"
+        
+        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fileDirrectory) { (avatarLink) in
+            let user = User(id: id, username: names[i], email: "user\(userIndex)@mail.com", pushId: "", avatarLink: avatarLink ?? "", status: "No status")
+            
+            userIndex += 1
+            FirebaseUserListener.shared.saveUserToFirestore(user)
+        }
+        imageIndex += 1
+        
+        if imageIndex == 5 {
+            imageIndex = 1
+        }
+    }
+}
