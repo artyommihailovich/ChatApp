@@ -578,11 +578,11 @@
         <!--Status-->
         <scene sceneID="uzn-45-5Og">
             <objects>
-                <tableViewController id="5ja-h2-NUC" sceneMemberID="viewController">
+                <tableViewController id="5ja-h2-NUC" customClass="StatusTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="n3E-Gy-YZM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="TableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="6Au-Zi-bK3" style="IBUITableViewCellStyleDefault" id="cwB-Pm-LG8">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>

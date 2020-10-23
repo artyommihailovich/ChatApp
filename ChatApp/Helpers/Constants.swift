@@ -12,3 +12,4 @@ let userDefaults = UserDefaults.standard
 public let kCURRENTUSER = "currentUser"
 public let kFILEREFERENCE = "gs://chatapp-b5e53.appspot.com"
 public let kSTATUS = "status"
+public let kFIRSTRUN = "firstRUN"

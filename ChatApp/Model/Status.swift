@@ -8,7 +8,7 @@
 import Foundation
 
 enum Status: String {
-    case Availible = "Availible"
+    case Available = "Available"
     case InYogaClass = "In yoga class"
     case Busy = "Busy"
     case AtTheCode = "At the code 👨🏼‍💻"
@@ -26,11 +26,9 @@ enum Status: String {
     static var array: [Status] {
         var a: [Status] = []
         
-        switch Status.Availible {
-        case .Availible:
-            a.append(.Availible); fallthrough
-        case .Availible:
-            a.append(.Availible); fallthrough
+        switch Status.Available {
+        case .Available:
+            a.append(.Available); fallthrough
         case .InYogaClass:
             a.append(.InYogaClass); fallthrough
         case .Busy:

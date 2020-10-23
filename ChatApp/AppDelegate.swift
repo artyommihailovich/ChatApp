@@ -11,12 +11,17 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //MARK: - Variables
+    
+    var firstRun: Bool?
 
-
+    
+    //MARK: - Application
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        
+        firstCheckRun()
         return true
     }
 
@@ -31,5 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         
+    }
+    
+    
+    //MARK: - First run
+    
+    private func firstCheckRun() {
+        firstRun = userDefaults.bool(forKey: kFIRSTRUN)
+        
+        if !firstRun! {
+            let status = Status.array.map {$0.rawValue}
+            userDefaults.set(status,forKey: kSTATUS)
+            userDefaults.set(true, forKey: kFIRSTRUN)
+            
+            userDefaults.synchronize()
+        }
     }
 }
