@@ -22,6 +22,8 @@
 		A47A672B2541A0E20028ECBC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A672A2541A0E20028ECBC /* Extensions.swift */; };
 		A47A672E254254B90028ECBC /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A672D254254B90028ECBC /* Status.swift */; };
 		A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A673025425C070028ECBC /* StatusTableViewController.swift */; };
+		A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */; };
+		A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67362542A2130028ECBC /* UsersTableViewController.swift */; };
 		A4CB960925208DE800422665 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960825208DE800422665 /* User.swift */; };
 		A4CB96102520939E00422665 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960F2520939D00422665 /* Constants.swift */; };
 		A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB96122520A6C100422665 /* FCollectionReference.swift */; };
@@ -47,6 +49,8 @@
 		A47A672A2541A0E20028ECBC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A47A672D254254B90028ECBC /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		A47A673025425C070028ECBC /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		A47A67362542A2130028ECBC /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		A4CB960825208DE800422665 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A4CB960F2520939D00422665 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A4CB96122520A6C100422665 /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */,
 				A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */,
 				A47A673025425C070028ECBC /* StatusTableViewController.swift */,
+				A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */,
+				A47A67362542A2130028ECBC /* UsersTableViewController.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
 				A41750BD251F2BAB00AF63E2 /* Assets.xcassets */,
 				A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */,
@@ -268,8 +274,10 @@
 			files = (
 				A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */,
 				A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */,
+				A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */,
 				A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */,
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
+				A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */,
 				A4CB960925208DE800422665 /* User.swift in Sources */,
 				A41750B9251F2BA900AF63E2 /* LoginViewController.swift in Sources */,
 				A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */,

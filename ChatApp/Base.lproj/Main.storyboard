@@ -240,7 +240,7 @@
                     <connections>
                         <segue destination="Gwz-M4-tAK" kind="relationship" relationship="viewControllers" id="SNP-wC-t7v"/>
                         <segue destination="6uu-WC-C1H" kind="relationship" relationship="viewControllers" id="hSz-Qp-5fl"/>
-                        <segue destination="DnT-ZY-wpJ" kind="relationship" relationship="viewControllers" id="9bu-TO-XrL"/>
+                        <segue destination="mPF-zp-dc7" kind="relationship" relationship="viewControllers" id="9bu-TO-XrL"/>
                         <segue destination="Bv6-nf-D9m" kind="relationship" relationship="viewControllers" id="YM0-gU-46c"/>
                     </connections>
                 </tabBarController>
@@ -251,19 +251,55 @@
         <!--Users-->
         <scene sceneID="fY2-A1-DLU">
             <objects>
-                <tableViewController id="DnT-ZY-wpJ" sceneMemberID="viewController">
+                <tableViewController id="DnT-ZY-wpJ" customClass="UsersTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U4g-2F-JSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PiL-Ac-2EG">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="PiL-Ac-2EG" customClass="UserTableViewCell" customModule="ChatApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PiL-Ac-2EG" id="OD7-EL-eHT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="347.66666666666669" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Yeq-yD-yEu">
+                                            <rect key="frame" x="16" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="7or-7S-q3C"/>
+                                                <constraint firstAttribute="width" constant="60" id="UEA-Xz-3uj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-nj-2dJ">
+                                            <rect key="frame" x="84" y="14.999999999999998" width="263.66666666666669" height="19.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sH3-WS-k1M">
+                                            <rect key="frame" x="84" y="51" width="263.66666666666669" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sH3-WS-k1M" firstAttribute="leading" secondItem="Yeq-yD-yEu" secondAttribute="trailing" constant="8" id="AMm-sU-Oi8"/>
+                                        <constraint firstItem="Yeq-yD-yEu" firstAttribute="leading" secondItem="OD7-EL-eHT" secondAttribute="leading" constant="16" id="B0d-cp-hF8"/>
+                                        <constraint firstAttribute="trailing" secondItem="sH3-WS-k1M" secondAttribute="trailing" id="FZz-NH-wr8"/>
+                                        <constraint firstItem="Gvp-nj-2dJ" firstAttribute="leading" secondItem="Yeq-yD-yEu" secondAttribute="trailing" constant="8" id="aGB-12-gk0"/>
+                                        <constraint firstItem="Gvp-nj-2dJ" firstAttribute="top" secondItem="OD7-EL-eHT" secondAttribute="top" constant="14.999999999999886" id="aQY-O2-MH6"/>
+                                        <constraint firstAttribute="bottom" secondItem="sH3-WS-k1M" secondAttribute="bottom" constant="11" id="cj8-Ac-HFz"/>
+                                        <constraint firstItem="Yeq-yD-yEu" firstAttribute="centerY" secondItem="OD7-EL-eHT" secondAttribute="centerY" id="leg-Mg-GzO"/>
+                                        <constraint firstAttribute="trailing" secondItem="Gvp-nj-2dJ" secondAttribute="trailing" id="xN0-zX-AKD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="Yeq-yD-yEu" id="azj-yv-BfN"/>
+                                    <outlet property="statusLabel" destination="sH3-WS-k1M" id="Dcn-15-uvs"/>
+                                    <outlet property="usernameLabel" destination="Gvp-nj-2dJ" id="nVL-8T-foY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -271,11 +307,11 @@
                             <outlet property="delegate" destination="DnT-ZY-wpJ" id="JBT-oZ-8no"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Users" image="person.2" catalog="system" id="Thc-Nu-mvN"/>
+                    <navigationItem key="navigationItem" title="Users" largeTitleDisplayMode="always" id="fdo-m4-52R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wi-d4-t8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="353"/>
+            <point key="canvasLocation" x="2954.4000000000001" y="352.46305418719214"/>
         </scene>
         <!-- Settings-->
         <scene sceneID="2or-Sr-z5p">
@@ -631,6 +667,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTT-5A-WTe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2012" y="1113.5467980295566"/>
+        </scene>
+        <!--Users-->
+        <scene sceneID="0BF-S5-9k1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPF-zp-dc7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Users" image="person.2" catalog="system" id="Thc-Nu-mvN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="65t-tX-PS0">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DnT-ZY-wpJ" kind="relationship" relationship="rootViewController" id="I1P-Hv-1bN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kGl-6O-dCN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="352.46305418719214"/>
         </scene>
     </scenes>
     <resources>
