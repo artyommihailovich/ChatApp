@@ -152,6 +152,7 @@ class FirebaseUserListener {
                 
                 if User.currentId != user.id {
                     users.append(user)
+
                 }
             }
             
