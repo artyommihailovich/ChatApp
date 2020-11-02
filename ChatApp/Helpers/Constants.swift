@@ -13,3 +13,6 @@ public let kCURRENTUSER = "currentUser"
 public let kFILEREFERENCE = "gs://chatapp-b5e53.appspot.com"
 public let kSTATUS = "status"
 public let kFIRSTRUN = "firstRUN"
+
+public let kCHATROOMID = "chatRoomId"
+public let kSENDERID = "senderId"
