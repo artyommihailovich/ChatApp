@@ -48,4 +48,8 @@ class FirebaseRecentListener {
             print("Error saving recent chat", error.localizedDescription)
         }
     }
+    
+    func deleteRecent(_ recent: RecentChat) {
+        firebaseReference(.Recent).document(recent.id).delete()
+    }
 }

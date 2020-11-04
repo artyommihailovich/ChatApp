@@ -235,7 +235,7 @@
         <!--Users-->
         <scene sceneID="fY2-A1-DLU">
             <objects>
-                <tableViewController id="DnT-ZY-wpJ" customClass="UsersTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="usersView" id="DnT-ZY-wpJ" customClass="UsersTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U4g-2F-JSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -793,7 +793,7 @@
         <!--Chats-->
         <scene sceneID="KTI-DG-8Ir">
             <objects>
-                <tableViewController id="9Zs-R5-YHm" sceneMemberID="viewController">
+                <tableViewController id="9Zs-R5-YHm" customClass="ChatsTableViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QHK-B5-nRp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -890,7 +890,14 @@
                             <outlet property="delegate" destination="9Zs-R5-YHm" id="UsU-tk-8Tv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Chats" id="y5V-Vg-F58"/>
+                    <navigationItem key="navigationItem" title="Chats" id="y5V-Vg-F58">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="0gl-G0-n5Q">
+                            <color key="tintColor" name="label"/>
+                            <connections>
+                                <action selector="composeBarButtonPressed:" destination="9Zs-R5-YHm" id="ISk-k1-Yoo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxD-q9-4Dr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
