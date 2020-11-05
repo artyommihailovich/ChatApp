@@ -19,6 +19,14 @@ func startChat(user1: User, user2: User) -> String {
     return chatRoomId
 }
 
+func restartChat(chatRoomId: String, memberIds: [String]) {
+    FirebaseUserListener.shared.downloadUsersFromFirebase(withIds: memberIds) { (users) in
+        if users.count > 0 {
+            createRecentItems(chatRoomId: chatRoomId, users: users)
+        }
+    }
+}
+
 func createRecentItems(chatRoomId: String, users: [User]) {
     var memberIdsToCreateRecent = [users.first!.id, users.last!.id]
 
@@ -37,7 +45,7 @@ func createRecentItems(chatRoomId: String, users: [User]) {
             
             let recentObject = RecentChat(id: UUID().uuidString, chatRoomId: chatRoomId, senderId: senderUser.id, senderName: senderUser.username, receiverId: receiverUser.id, receiverName: receiverUser.username, date: Date(), memberIds: [senderUser.id, receiverUser.id], lastMessage: "", unreadCounter: 0, avatarLink: receiverUser.avatarLink)
             
-            FirebaseRecentListener.shared.addRecent(recentObject)
+            FirebaseRecentListener.shared.saveRecent(recentObject)
         }
     }
 }
