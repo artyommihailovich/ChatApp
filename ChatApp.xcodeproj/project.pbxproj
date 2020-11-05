@@ -25,6 +25,7 @@
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
 		A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */; };
+		A472ECFE2553781900CADFA3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472ECFD2553781900CADFA3 /* ChatViewController.swift */; };
 		A47A672B2541A0E20028ECBC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A672A2541A0E20028ECBC /* Extensions.swift */; };
 		A47A672E254254B90028ECBC /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A672D254254B90028ECBC /* Status.swift */; };
 		A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A673025425C070028ECBC /* StatusTableViewController.swift */; };
@@ -58,6 +59,7 @@
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		A472ECFD2553781900CADFA3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A47A672A2541A0E20028ECBC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A47A672D254254B90028ECBC /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		A47A673025425C070028ECBC /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
+				A472ECFD2553781900CADFA3 /* ChatViewController.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */,
 				A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */,
 				A47A672E254254B90028ECBC /* Status.swift in Sources */,
+				A472ECFE2553781900CADFA3 /* ChatViewController.swift in Sources */,
 				A41750B5251F2BA900AF63E2 /* AppDelegate.swift in Sources */,
 				A41B314725524BC200DF83F1 /* ChatsTableViewController.swift in Sources */,
 				A41B3118254E97D100DF83F1 /* StartChat.swift in Sources */,

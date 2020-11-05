@@ -59,10 +59,13 @@ class ChatsTableViewController: UITableViewController {
     //MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //TODO: continue chat with user and go to chatroom
+        let recent = searchController.isActive ? filteredRecents[indexPath.row] : allRecents[indexPath.row]
+        
+        FirebaseRecentListener.shared.clearUnreadCounter(recent: recent)
+        
+        goToChat(recent: recent)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -107,6 +110,19 @@ class ChatsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    
+    //MARK: - Navigation
+    
+    private func goToChat(recent: RecentChat) {
+        
+        restartChat(chatRoomId: recent.chatRoomId, memberIds: recent.memberIds)
+        
+        let privateChatView = ChatViewController(chatId: recent.chatRoomId, recepientId: recent.receiverId, recepientName: recent.receiverName)
+        
+        privateChatView.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(privateChatView, animated: true)
     }
     
     
