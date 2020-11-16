@@ -64,11 +64,11 @@ class EditProfileTableViewController: UITableViewController {
     
     //MARK: - IBActions
     
-    
     @IBAction func editButtonPressed(_ sender: Any) {
         
         showImageGallery()
     }
+    
     
     //MARK: - Update UI
     
