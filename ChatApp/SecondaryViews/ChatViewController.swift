@@ -13,6 +13,32 @@ import RealmSwift
 
 class ChatViewController: MessagesViewController {
 
+    //MARK: - Views
+    
+    let leftBarButtonView: UIView = {
+        return UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+    }()
+    
+    let titleLabel: UILabel = {
+        let title = UILabel(frame: CGRect(x: 5, y: 0, width: 180, height: 25))
+        title.textAlignment = .left
+        title.font = .systemFont(ofSize: 15, weight: .medium)
+        title.adjustsFontSizeToFitWidth = true
+        
+        return title
+    }()
+    
+    let subTitleLabel: UILabel = {
+        let subTitle = UILabel(frame: CGRect(x: 5, y: 22, width: 180, height: 20))
+        subTitle.textAlignment = .left
+        subTitle.font = .systemFont(ofSize: 12, weight: .medium)
+        //subTitle.tintColor = .systemGray4
+        subTitle.adjustsFontSizeToFitWidth = true
+        
+        return subTitle
+    }()
+    
+    
     //MARK: - Variables
     
     private var chatId = ""
@@ -56,6 +82,8 @@ class ChatViewController: MessagesViewController {
         configureMessageCollectionView()
         configureMessageInputBar()
         loadChats()
+        configureLeftBarButton()
+        configureCustomTitle() 
     }
     
     
@@ -89,9 +117,41 @@ class ChatViewController: MessagesViewController {
         // Add gesture recognizer
         messageInputBar.setStackViewItems([attachButton], forStack: .left, animated: false)
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
+        updatedMicButtonStatus(show: true)
         messageInputBar.inputTextView.isImagePasteEnabled = true
         messageInputBar.backgroundView.backgroundColor = .systemBackground
         messageInputBar.inputTextView.backgroundColor = . systemBackground
+    }
+    
+    // Update mic button
+    
+    func updatedMicButtonStatus(show: Bool) {
+        
+        if show {
+            messageInputBar.setStackViewItems([micButton], forStack: .right, animated: false)
+            messageInputBar.setRightStackViewWidthConstant(to: 30, animated: false)
+        } else {
+            messageInputBar.setStackViewItems([messageInputBar.sendButton], forStack: .right, animated: false)
+            messageInputBar.setRightStackViewWidthConstant(to: 50, animated: false)
+        }
+    }
+    
+    
+    //MARK: - Configure left bar button
+    
+    private func configureLeftBarButton() {
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.systemOrange, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))]
+    }
+    
+    private func configureCustomTitle() {
+        leftBarButtonView.addSubview(titleLabel)
+        leftBarButtonView.addSubview(subTitleLabel)
+        
+        let leftBarButton = UIBarButtonItem(customView: leftBarButtonView)
+        
+        self.navigationItem.leftBarButtonItems?.append(leftBarButton)
+        
+        titleLabel.text = recepientName
         
     }
     
@@ -146,4 +206,21 @@ class ChatViewController: MessagesViewController {
         
         OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recepientId])
     }
+    
+    //Chevron back button
+    
+    @objc func backButtonPressed() {
+        //TODO: Remove listeners
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    //MARK: - Update typing indicator
+    
+    func updateTypingIndicator(_ show: Bool) {
+       // subTitleLabel.text = show ? "Typing..." : ""
+    }
+    
+    
 }
