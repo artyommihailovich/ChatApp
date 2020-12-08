@@ -83,7 +83,9 @@ class ChatViewController: MessagesViewController {
         configureMessageInputBar()
         loadChats()
         configureLeftBarButton()
-        configureCustomTitle() 
+        configureCustomTitle()
+        loadChats()
+        listenForNewChats()
     }
     
     
@@ -163,6 +165,10 @@ class ChatViewController: MessagesViewController {
         
         allLocalMessages = realm.objects(LocalMessage.self).filter(predicate).sorted(byKeyPath: kDATE, ascending: true)
         
+        if allLocalMessages.isEmpty {
+            checkForOldChats()
+        }
+        
         notificationToken = allLocalMessages.observe({ (changes: RealmCollectionChange) in
             
             switch changes {
@@ -200,6 +206,16 @@ class ChatViewController: MessagesViewController {
     }
     
     
+    private func listenForNewChats() {
+        FirebaseMessageListener.shared.listenForNewChats(User.currentId, collectionId: chatId, lastMessageDate: lastMessageDate())
+    }
+    
+    private func checkForOldChats() {
+    
+        FirebaseMessageListener.shared.checkForOldChats(User.currentId, collectionId: chatId)
+    }
+    
+    
     //MARK: - Actions
     
     func messageSend(text: String?, photo: UIImage?, video: String?, audio: String?, location: String?, audioDuration: Float = 0.0) {
@@ -222,5 +238,13 @@ class ChatViewController: MessagesViewController {
        // subTitleLabel.text = show ? "Typing..." : ""
     }
     
+    
+    //MARK: - Helpers
+    
+    private func lastMessageDate() -> Date {
+        let lastMessageDate = allLocalMessages.last?.date ?? Date()
+        
+        return Calendar.current.date(byAdding: .second, value: 1, to: lastMessageDate) ?? lastMessageDate
+    }
     
 }
