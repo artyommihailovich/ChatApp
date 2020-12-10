@@ -15,7 +15,10 @@ extension ChatViewController: MessagesLayoutDelegate {
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         
         if indexPath.section % 3 == 0 {
-         //TODO: Set Diffrent size to pull to reload
+        
+            if ((indexPath.count == 0) && (allLocalMessages.count > displayingMessagesCount)) {
+                return 40
+            }
  
             return 18
         }
