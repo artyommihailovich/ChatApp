@@ -58,6 +58,8 @@ class ChatViewController: MessagesViewController {
     var maxMessageNumber = 0
     var minMessageNumber = 0
     
+    var typingCounter = 0
+    
     
     //MARK: - Listeners
     
@@ -86,6 +88,7 @@ class ChatViewController: MessagesViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         
+        createTypingObserver()
         configureMessageCollectionView()
         configureMessageInputBar()
         loadChats()
@@ -263,7 +266,8 @@ class ChatViewController: MessagesViewController {
     //Chevron back button
     
     @objc func backButtonPressed() {
-        //TODO: Remove listeners
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+        removeListeners()
         
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -271,8 +275,36 @@ class ChatViewController: MessagesViewController {
     
     //MARK: - Update typing indicator
     
+    func createTypingObserver() {
+        FirebaseTypingListener.shared.createTypingObserver(chatRoomId: chatId) { (isTyping) in
+            
+            DispatchQueue.main.async {
+                self.updateTypingIndicator(isTyping)
+            }
+        }
+    }
+    
+    func typingIndicatorUpdate() {
+        typingCounter += 1
+
+        FirebaseTypingListener.saveTypingCounter(typing: true, chatRoomId: chatId)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.typingCounterStop()
+        }
+    }
+    
+    func typingCounterStop() {
+        typingCounter -= 1
+        
+        if typingCounter == 0 {
+            FirebaseTypingListener.saveTypingCounter(typing: false, chatRoomId: chatId)
+        }
+    }
+    
+    
     func updateTypingIndicator(_ show: Bool) {
-       // subTitleLabel.text = show ? "Typing..." : ""
+        subTitleLabel.text = show ? "Typing..." : ""
     }
     
     
@@ -293,6 +325,11 @@ class ChatViewController: MessagesViewController {
     
     
     //MARK: - Helpers
+    
+    private func removeListeners() {
+        FirebaseTypingListener.shared.removeTypingListener()
+        FirebaseMessageListener.shared.removeListeners()
+    }
     
     private func lastMessageDate() -> Date {
         let lastMessageDate = allLocalMessages.last?.date ?? Date()

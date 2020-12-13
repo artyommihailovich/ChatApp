@@ -11,15 +11,18 @@ import FirebaseFirestoreSwift
 
 class FirebaseMessageListener  {
     
+    //MARK: - Singleton
+    
     static let shared = FirebaseMessageListener()
+    
+    private init() {}
+    
     
     //MARK: - Variables
     
     var newChatListener: ListenerRegistration!
     var updateChatListener: ListenerRegistration!
     
-    
-    private init() {}
     
     
     //MARK: - Listen for new chats
@@ -90,4 +93,10 @@ class FirebaseMessageListener  {
             print("Error saving message! ", error.localizedDescription)
         }
     }
+    
+    func removeListeners() {
+        self.newChatListener.remove()
+        self.updateChatListener.remove()
+    }
+    
 }
