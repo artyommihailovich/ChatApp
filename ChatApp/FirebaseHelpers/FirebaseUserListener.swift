@@ -9,9 +9,11 @@ import Foundation
 import Firebase
 
 class FirebaseUserListener {
+    
+    //MARK: - Singleton
+    
     static let shared = FirebaseUserListener()
     
-    // Create singleton
     private init () {}
     
     

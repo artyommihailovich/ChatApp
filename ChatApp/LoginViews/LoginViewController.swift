@@ -42,11 +42,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateUIFor(login: true)
         setUpTextFieldDelegate()
         setUpBackgroundTap()
-     
     }
     
     
@@ -112,6 +110,8 @@ class LoginViewController: UIViewController {
     //MARK: -  Animations
     
     private func updateUIFor(login: Bool) {
+        //TODO: add ShimmerSwift
+        
         // UI like toggle changes
         loginButtonOutlet.setImage(UIImage(named: login ? "loginButton" : "registerButton"), for: .normal)
         signUpButtonOutlet.setTitle(login ? "Sign up!" : "Login", for: .normal)

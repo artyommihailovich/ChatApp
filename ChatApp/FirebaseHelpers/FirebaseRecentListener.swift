@@ -9,11 +9,13 @@ import Foundation
 import Firebase
 
 class FirebaseRecentListener {
+  
+    //MARK: - Singleton
     
-    // Singleton
     static let shared = FirebaseRecentListener()
     
     private init() {}
+    
     
     func downlopadRecentChatsFromFirestore(completion: @escaping(_ allRecents: [RecentChat]) -> Void) {
         firebaseReference(.Recent).whereField(kSENDERID, isEqualTo: User.currentId).addSnapshotListener { (querySnapshot, erroe) in

@@ -9,12 +9,13 @@
 import Foundation
 import FirebaseFirestore
 
-enum fCollectionReference: String {
+enum FCollectionReference: String {
     case User
     case Recent
     case Messages
+    case Typing
 }
 
-func firebaseReference(_ collectionReference: fCollectionReference) -> CollectionReference {
+func firebaseReference(_ collectionReference: FCollectionReference) -> CollectionReference {
     return Firestore.firestore().collection(collectionReference.rawValue)
 }
