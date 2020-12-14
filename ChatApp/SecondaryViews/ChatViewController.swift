@@ -60,6 +60,8 @@ class ChatViewController: MessagesViewController {
     
     var typingCounter = 0
     
+    var gallery: GalleryController!
+    
     
     //MARK: - Listeners
     
@@ -301,11 +303,11 @@ class ChatViewController: MessagesViewController {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
         let takePhotoOrVideo = UIAlertAction(title: "Camera", style: .default) { (alert) in
-            print("Show camera")
+            self.showImageGallery(camera: true)
         }
         
         let sharePhotoOrVideo = UIAlertAction(title: "Library", style: .default) { (alert) in
-            print("Show library")
+            self.showImageGallery(camera: false)
         }
         
         let shareLocation = UIAlertAction(title: "Share location", style: .default) { (alert) in
@@ -355,7 +357,6 @@ class ChatViewController: MessagesViewController {
             FirebaseTypingListener.saveTypingCounter(typing: false, chatRoomId: chatId)
         }
     }
-    
     
     func updateTypingIndicator(_ show: Bool) {
         subTitleLabel.text = show ? "Typing..." : ""
@@ -412,4 +413,47 @@ class ChatViewController: MessagesViewController {
         return Calendar.current.date(byAdding: .second, value: 1, to: lastMessageDate) ?? lastMessageDate
     }
     
+    
+    //MARK: - Gallery part
+
+    private func showImageGallery(camera: Bool) {
+        gallery = GalleryController()
+        gallery.delegate = self
+        
+        Config.tabsToShow = camera ? [.cameraTab] : [.imageTab,.videoTab]
+        Config.Camera.imageLimit = 1
+        Config.initialTab = .imageTab
+        Config.VideoEditor.maximumDuration = 45
+        
+        self.present(gallery, animated: true, completion: nil)
+        
+    }
+
+}
+
+
+extension ChatViewController: GalleryControllerDelegate {
+    
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        
+        if images.count > 0 {
+            images.first!.resolve { (image) in
+                self.messageSend(text: nil, photo: image, video: nil, audio: nil, location: nil)
+            }
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
