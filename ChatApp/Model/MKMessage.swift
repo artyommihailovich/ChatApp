@@ -10,6 +10,9 @@ import MessageKit
 import CoreLocation
 
 class MKMessage: NSObject, MessageType {
+    
+    //MARK: - Variables
+    
     var messageId: String = ""
     
     var kind: MessageKind
@@ -20,8 +23,13 @@ class MKMessage: NSObject, MessageType {
     var sender: SenderType { return mkSender }
     var senderInitials: String
     
+    var photoItem: PhotoMessage?
+    
     var status: String
     var readDate: Date
+    
+    
+    //MARK: - Init
 
     init(message: LocalMessage) {
         self.messageId = message.id
@@ -29,10 +37,17 @@ class MKMessage: NSObject, MessageType {
         self.status = message.status
         self.kind = MessageKind.text(message.message)
         
-//        switch messageKind {
-//        case:
-//        case:
-//        }
+        switch message.type {
+        case kTEXT:
+            self.kind = MessageKind.text(message.message)
+        case kPHOTO:
+            let photoItem  = PhotoMessage(path: message.pictureUrl)
+            
+            self.kind = MessageKind.photo(photoItem)
+            self.photoItem = photoItem
+        default:
+            print("Unknow message type")
+        }
         
         self.senderInitials = message.senderInitials
         self.sentDate = message.date

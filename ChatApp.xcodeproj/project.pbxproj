@@ -34,6 +34,7 @@
 		A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A673025425C070028ECBC /* StatusTableViewController.swift */; };
 		A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */; };
 		A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67362542A2130028ECBC /* UsersTableViewController.swift */; };
+		A4977CF62587612C00D3E037 /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4977CF52587612C00D3E037 /* PhotoMessage.swift */; };
 		A4B52D552574D58C00FCDD27 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B52D542574D58C00FCDD27 /* RealmManager.swift */; };
 		A4B52DF42575D30C00FCDD27 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */; };
 		A4CB960925208DE800422665 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960825208DE800422665 /* User.swift */; };
@@ -81,6 +82,7 @@
 		A47A673025425C070028ECBC /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
 		A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		A47A67362542A2130028ECBC /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		A4977CF52587612C00D3E037 /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
 		A4B52D542574D58C00FCDD27 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		A4CB960825208DE800422665 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				A41F2B88256239D5004FE8A9 /* MKMessage.swift */,
 				A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */,
 				A4E49BA1257A032A00E22BA8 /* IncomingMessage.swift */,
+				A4977CF52587612C00D3E037 /* PhotoMessage.swift */,
 				A41F2B9025623CCE004FE8A9 /* RealmMessages */,
 			);
 			path = Model;
@@ -414,6 +417,7 @@
 				A472ECFE2553781900CADFA3 /* ChatViewController.swift in Sources */,
 				A41750B5251F2BA900AF63E2 /* AppDelegate.swift in Sources */,
 				A4ED15A925612B8200C4FDA7 /* MessageDisplayDelegate.swift in Sources */,
+				A4977CF62587612C00D3E037 /* PhotoMessage.swift in Sources */,
 				A4ED15A125612B3000C4FDA7 /* MessageDataSource.swift in Sources */,
 				A41B314725524BC200DF83F1 /* ChatsTableViewController.swift in Sources */,
 				A4E49B9F2579F5A000E22BA8 /* FirebaseMessageListener.swift in Sources */,

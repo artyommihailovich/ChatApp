@@ -23,7 +23,18 @@ class IncomingMessage {
     func createMessage(localMessage: LocalMessage) -> MKMessage? {
         let mkMessage = MKMessage(message: localMessage)
         
-        //Multimedia messages
+        if localMessage.type == kPHOTO {
+            let photoItem = PhotoMessage(path: localMessage.pictureUrl)
+            
+            mkMessage.photoItem = photoItem
+            mkMessage.kind = MessageKind.photo(photoItem)
+            
+            FileStorage.downloadImage(imageUrl: localMessage.pictureUrl) { (image) in
+               
+                mkMessage.photoItem?.image = image
+                self.messageCollectionView.messagesCollectionView.reloadData()
+            }
+        }
         
         return mkMessage
     }
