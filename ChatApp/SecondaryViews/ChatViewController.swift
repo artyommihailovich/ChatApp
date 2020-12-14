@@ -96,6 +96,7 @@ class ChatViewController: MessagesViewController {
         configureCustomTitle()
         loadChats()
         listenForNewChats()
+        listenForReadStatusChange()
     }
     
     
@@ -120,7 +121,8 @@ class ChatViewController: MessagesViewController {
         attachButton.image = UIImage(systemName: "plus.diamond", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
         attachButton.setSize(CGSize(width: 30, height: 30), animated: false)
         attachButton.onTouchUpInside { item in
-            print("Attach button pressed!")
+            self.actionAttachMessage()
+            
         }
         
         micButton.image = UIImage(systemName: "mic", withConfiguration: UIImage.SymbolConfiguration(weight: .light ))
@@ -205,6 +207,15 @@ class ChatViewController: MessagesViewController {
     
     //MARK: - Insert messages
     
+    private func listenForReadStatusChange() {
+        FirebaseMessageListener.shared.listenForReadStatusChange(User.currentId, collectionId: chatId) { (updatedMessage) in
+            
+            if updatedMessage.status != kSENT {
+                self.updateMessage(updatedMessage)
+            }
+        }
+    }
+    
     private func insertMessages() {
         
         maxMessageNumber = allLocalMessages.count - displayingMessagesCount
@@ -220,6 +231,11 @@ class ChatViewController: MessagesViewController {
     }
     
     private func insertMessage(_ localMessage: LocalMessage) {
+        
+        if localMessage.senderId != User.currentId {
+            markMessageAsRead(localMessage)
+        }
+        
         let incoming = IncomingMessage(_collectionView: self)
         
         self.mkMessages.append(incoming.createMessage(localMessage: localMessage)!)
@@ -255,6 +271,12 @@ class ChatViewController: MessagesViewController {
         displayingMessagesCount += 1
     }
     
+    private func markMessageAsRead(_ localMessage: LocalMessage) {
+        
+        if localMessage.senderId != User.currentId && localMessage.status != kREAD {
+            FirebaseMessageListener.shared.updateMessageInFirebase(localMessage, memberIds: [User.currentId, recepientId])
+        }
+    }
     
     //MARK: - Actions
     
@@ -270,6 +292,38 @@ class ChatViewController: MessagesViewController {
         removeListeners()
         
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func actionAttachMessage() {
+        
+        messageInputBar.inputTextView.resignFirstResponder()
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    
+        let takePhotoOrVideo = UIAlertAction(title: "Camera", style: .default) { (alert) in
+            print("Show camera")
+        }
+        
+        let sharePhotoOrVideo = UIAlertAction(title: "Library", style: .default) { (alert) in
+            print("Show library")
+        }
+        
+        let shareLocation = UIAlertAction(title: "Share location", style: .default) { (alert) in
+            print("Share location")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        takePhotoOrVideo.setValue(UIImage(systemName: "camera"), forKey: "image")
+        sharePhotoOrVideo.setValue(UIImage(systemName: "photo.fill"), forKey: "image")
+        shareLocation.setValue(UIImage(systemName: "map"), forKey: "image")
+        
+        optionMenu.addAction(takePhotoOrVideo)
+        optionMenu.addAction(sharePhotoOrVideo)
+        optionMenu.addAction(shareLocation)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     
@@ -320,6 +374,27 @@ class ChatViewController: MessagesViewController {
             }
             
             refreshController.endRefreshing()
+        }
+    }
+    
+    
+    //MARK: - Update read message status
+    
+    private func updateMessage(_ localMessage: LocalMessage) {
+        
+        for index in 0 ..< mkMessages.count {
+            let tempMessage = mkMessages[index]
+            
+            if localMessage.id == tempMessage.messageId {
+                mkMessages[index].status = localMessage.status
+                mkMessages[index].readDate = localMessage.readDate
+                
+                RealmManager.shared.saveToRealm(localMessage)
+                
+                if mkMessages[index].status == kREAD {
+                    self.messagesCollectionView.reloadData()
+                }
+            }
         }
     }
     
