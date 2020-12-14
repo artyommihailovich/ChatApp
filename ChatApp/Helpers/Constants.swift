@@ -18,7 +18,7 @@ public let kCHATROOMID = "chatRoomId"
 public let kSENDERID = "senderId"
 
 public let kSENT = "Sent"
-public let kRead = "Read"
+public let kREAD = "Read"
 
 public let kTEXT = "text"
 public let kPHOTO = "photo"
@@ -27,5 +27,6 @@ public let kAUDIO = "audio"
 public let kLOCATION = "location"
 
 public let kDATE = "date"
+public let kREADDATE = "date"
 
 public let kNUMBEROFMESSAGES = 12

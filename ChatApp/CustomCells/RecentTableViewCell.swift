@@ -62,7 +62,7 @@ class RecentTableViewCell: UITableViewCell {
                 self.avatarImageView.image = avatarImage?.circleMasked
                 }
             } else {
-                self.avatarImageView.image = UIImage(named: "avatar")?.circleMasked
+                self.avatarImageView.image = UIImage(named: "avatar")
         }
     }
 }

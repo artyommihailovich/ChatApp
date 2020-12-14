@@ -27,6 +27,8 @@ class OutgoingMessage {
             //Send text message
             sendTextMessage(message: message, text: text!, memberIds: memberIds)
         }
+        
+        FirebaseRecentListener.shared.updateRecents(chatRoomid: chatId, lastMessage: message.message)
     }
     
     class func sendMessage(message: LocalMessage, memberIds: [String]) {
