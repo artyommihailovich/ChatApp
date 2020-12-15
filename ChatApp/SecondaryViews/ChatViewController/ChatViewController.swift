@@ -282,7 +282,7 @@ class ChatViewController: MessagesViewController {
     
     //MARK: - Actions
     
-    func messageSend(text: String?, photo: UIImage?, video: String?, audio: String?, location: String?, audioDuration: Float = 0.0) {
+    func messageSend(text: String?, photo: UIImage?, video: Video?, audio: String?, location: String?, audioDuration: Float = 0.0) {
         
         OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recepientId])
     }
@@ -432,9 +432,11 @@ class ChatViewController: MessagesViewController {
 }
 
 
-extension ChatViewController: GalleryControllerDelegate {
+    //MARK: - Gallery extension
+
+    extension ChatViewController: GalleryControllerDelegate {
     
-    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
         
         if images.count > 0 {
             images.first!.resolve { (image) in
@@ -446,6 +448,7 @@ extension ChatViewController: GalleryControllerDelegate {
     }
     
     func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        self.messageSend(text: nil, photo: nil, video: video, audio: nil, location: nil)
         controller.dismiss(animated: true, completion: nil)
     }
     

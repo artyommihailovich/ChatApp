@@ -35,6 +35,7 @@
 		A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */; };
 		A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A67362542A2130028ECBC /* UsersTableViewController.swift */; };
 		A4977CF62587612C00D3E037 /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4977CF52587612C00D3E037 /* PhotoMessage.swift */; };
+		A4977D2325887D8800D3E037 /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4977D2225887D8800D3E037 /* VideoMessage.swift */; };
 		A4B52D552574D58C00FCDD27 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B52D542574D58C00FCDD27 /* RealmManager.swift */; };
 		A4B52DF42575D30C00FCDD27 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */; };
 		A4CB960925208DE800422665 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB960825208DE800422665 /* User.swift */; };
@@ -83,6 +84,7 @@
 		A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		A47A67362542A2130028ECBC /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		A4977CF52587612C00D3E037 /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
+		A4977D2225887D8800D3E037 /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		A4B52D542574D58C00FCDD27 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		A4CB960825208DE800422665 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -209,10 +211,27 @@
 			isa = PBXGroup;
 			children = (
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
+				A4977D2B25888D3600D3E037 /* ChatViewController */,
+			);
+			path = SecondaryViews;
+			sourceTree = "<group>";
+		};
+		A4977D2025887D7A00D3E037 /* MediaMessages */ = {
+			isa = PBXGroup;
+			children = (
+				A4977CF52587612C00D3E037 /* PhotoMessage.swift */,
+				A4977D2225887D8800D3E037 /* VideoMessage.swift */,
+			);
+			path = MediaMessages;
+			sourceTree = "<group>";
+		};
+		A4977D2B25888D3600D3E037 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
 				A472ECFD2553781900CADFA3 /* ChatViewController.swift */,
 				A4ED15A325612B4700C4FDA7 /* ChatViewExtensions */,
 			);
-			path = SecondaryViews;
+			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 		A4C7A88625257E4A003892B6 /* Helpers */ = {
@@ -236,7 +255,7 @@
 				A41F2B88256239D5004FE8A9 /* MKMessage.swift */,
 				A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */,
 				A4E49BA1257A032A00E22BA8 /* IncomingMessage.swift */,
-				A4977CF52587612C00D3E037 /* PhotoMessage.swift */,
+				A4977D2025887D7A00D3E037 /* MediaMessages */,
 				A41F2B9025623CCE004FE8A9 /* RealmMessages */,
 			);
 			path = Model;
@@ -408,6 +427,7 @@
 				A41750B9251F2BA900AF63E2 /* LoginViewController.swift in Sources */,
 				A4B52DF42575D30C00FCDD27 /* OutgoingMessage.swift in Sources */,
 				A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */,
+				A4977D2325887D8800D3E037 /* VideoMessage.swift in Sources */,
 				A4DC6E5D2582FA870094E032 /* FirebaseTypingListener.swift in Sources */,
 				A47A672B2541A0E20028ECBC /* Extensions.swift in Sources */,
 				A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */,
