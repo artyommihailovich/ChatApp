@@ -27,7 +27,7 @@ class FileStorage {
             ProgressHUD.dismiss()
             
             if error != nil {
-                print("Error uploading image \(error?.localizedDescription)")
+                print("Error uploading image \(String(describing: error?.localizedDescription))")
                 return
             }
             
@@ -91,6 +91,72 @@ class FileStorage {
             }
         }
     }
+    
+    
+    //MARK: - Video
+    
+    class func uploadVideo(_ video: NSData, directory: String, completion: @escaping (_ videoLink: String?) -> Void) {
+        
+        let storageReference = storage.reference(forURL: kFILEREFERENCE).child(directory)
+        
+        var task: StorageUploadTask!
+        
+        task = storageReference.putData(video as Data, metadata: nil, completion: { (metadata, error) in
+            task.removeAllObservers()
+            ProgressHUD.dismiss()
+            
+            if error != nil {
+                print("Error uploading video \(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            storageReference.downloadURL { (url, error) in
+                
+                guard let downloadURL = url else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(downloadURL.absoluteString)
+            }
+        })
+        
+        //How much % of image uploading UI
+        task.observe(StorageTaskStatus.progress) { (snapshot) in
+            let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+            ProgressHUD.showProgress(CGFloat(progress))
+        }
+    }
+    
+    class func downloadVideo(videoLink: String, completion: @escaping (_ isReadyToPlay: Bool,_ videoFileName: String) -> Void) {
+        
+        let videoUrl = URL(string: videoLink)
+        let videoFileName = fileNameFrom(fileUrl: videoLink) + ".mov"
+        
+        if fileExistAtPath(path: videoFileName) {
+            completion(true, videoFileName)
+            
+        } else {
+                let downloadQueue = DispatchQueue(label: "videoDownloadQueue")
+                
+                downloadQueue.async {
+                    let data = NSData(contentsOf: videoUrl!)
+                    
+                    if data != nil {
+                        // Save locally
+                        FileStorage.saveFileLocally(fileData: data!, fileName: videoFileName)
+                        
+                        DispatchQueue.main.async {
+                            completion(true, videoFileName)
+                        }
+                    } else {
+                        print("No document in database!")
+                }
+            }
+        }
+    }
+    
+
     
     
     //MARK: - Save locally
