@@ -31,6 +31,7 @@
 		A430C1ED258C447900CFE2AB /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1EC258C447900CFE2AB /* AudioRecorder.swift */; };
 		A430C1F0258C8F4A00CFE2AB /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1EF258C8F4A00CFE2AB /* AudioMessage.swift */; };
 		A430C1F3258C96E600CFE2AB /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1F2258C96E600CFE2AB /* BasicAudioController.swift */; };
+		A430C1F6258CB17500CFE2AB /* ChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
@@ -87,6 +88,7 @@
 		A430C1EC258C447900CFE2AB /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		A430C1EF258C8F4A00CFE2AB /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
 		A430C1F2258C96E600CFE2AB /* BasicAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
+		A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewController.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				A47A67362542A2130028ECBC /* UsersTableViewController.swift */,
 				A41B314625524BC200DF83F1 /* ChatsTableViewController.swift */,
+				A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				A4ED15A125612B3000C4FDA7 /* MessageDataSource.swift in Sources */,
 				A41B314725524BC200DF83F1 /* ChatsTableViewController.swift in Sources */,
 				A4E49B9F2579F5A000E22BA8 /* FirebaseMessageListener.swift in Sources */,
+				A430C1F6258CB17500CFE2AB /* ChannelsTableViewController.swift in Sources */,
 				A430C1E7258B65EB00CFE2AB /* MapViewController.swift in Sources */,
 				A4B52D552574D58C00FCDD27 /* RealmManager.swift in Sources */,
 				A4ED15AC25612B9600C4FDA7 /* MessageLayoutDelegate.swift in Sources */,
