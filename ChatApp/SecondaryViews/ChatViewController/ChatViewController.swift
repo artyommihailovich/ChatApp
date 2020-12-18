@@ -45,6 +45,8 @@ class ChatViewController: MessagesViewController {
     private var recepientId = ""
     private var recepientName = ""
     
+    open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
+    
     let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser!.username)
     let refreshController = UIRefreshControl()
     let micButton = InputBarButtonItem()
@@ -61,6 +63,10 @@ class ChatViewController: MessagesViewController {
     var typingCounter = 0
     
     var gallery: GalleryController!
+    var longPressGesture: UILongPressGestureRecognizer!
+    
+    var audioFileName = ""
+    var audioDuration: Date!
     
     
     //MARK: - Listeners
@@ -92,6 +98,7 @@ class ChatViewController: MessagesViewController {
         
         createTypingObserver()
         configureMessageCollectionView()
+        configureGestureRecognizer()
         configureMessageInputBar()
         loadChats()
         configureLeftBarButton()
@@ -99,6 +106,20 @@ class ChatViewController: MessagesViewController {
         loadChats()
         listenForNewChats()
         listenForReadStatusChange()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+        
+        audioController.stopAnyOngoingPlaying()
     }
     
     
@@ -116,6 +137,12 @@ class ChatViewController: MessagesViewController {
         
     }
     
+    private func configureGestureRecognizer() {
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(recordAudio))
+        longPressGesture.minimumPressDuration = 0.5
+        longPressGesture.delaysTouchesBegan = true
+    }
+    
     private func configureMessageInputBar() {
         messageInputBar.delegate = self
         
@@ -129,8 +156,8 @@ class ChatViewController: MessagesViewController {
         
         micButton.image = UIImage(systemName: "mic", withConfiguration: UIImage.SymbolConfiguration(weight: .light ))
         micButton.setSize(CGSize(width: 30, height: 30 ), animated: false)
+        micButton.addGestureRecognizer(longPressGesture)
         
-        // Add gesture recognizer
         messageInputBar.setStackViewItems([attachButton], forStack: .left, animated: false)
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         updatedMicButtonStatus(show: true)
@@ -284,7 +311,7 @@ class ChatViewController: MessagesViewController {
     
     func messageSend(text: String?, photo: UIImage?, video: Video?, audio: String?, location: String?, audioDuration: Float = 0.0) {
         
-        OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recepientId])
+        OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, audioDuration: audioDuration,  location: location, memberIds: [User.currentId, recepientId])
     }
     
     //Chevron back button
@@ -431,7 +458,36 @@ class ChatViewController: MessagesViewController {
         self.present(gallery, animated: true, completion: nil)
         
     }
-
+    
+    
+    //MARK: - Audio messages
+    
+    @objc func recordAudio() {
+       
+        switch longPressGesture.state {
+        case .began:
+            audioDuration = Date()
+            audioFileName = Date().stringDate()
+            AudioRecorder.shared.startRecording(fileName: audioFileName)
+        case .ended:
+            
+            AudioRecorder.shared.finishRecording()
+            
+            if fileExistAtPath(path: audioFileName + ".m4a") {
+                
+                let audioDur = audioDuration.timeInterval(of: .second, from: Date())
+                
+                messageSend(text: nil, photo: nil, video: nil, audio: audioFileName, location: nil, audioDuration: audioDur )
+            } else {
+                print("no audio file")
+            }
+            
+            audioFileName = ""
+            
+        @unknown default:
+            print("unknown")
+        }
+    }
 }
 
 

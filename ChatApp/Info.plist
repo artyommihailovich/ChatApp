@@ -70,5 +70,7 @@
 	<string>$(PRODUCT_NAME) would like to use your photo library</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your location</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to use your mic</string>
 </dict>
 </plist>

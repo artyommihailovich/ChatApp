@@ -67,4 +67,18 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
+    
+    func timeInterval(of component: Calendar.Component, from date: Date) -> Float {
+        let currentCalendar = Calendar.current
+        
+        guard let start = currentCalendar.ordinality(of: component, in: .era, for: date) else {
+            return 0
+        }
+        
+        guard let end = currentCalendar.ordinality(of: component, in: .era, for: self) else {
+            return 0
+        }
+        
+        return Float(start - end)
+    }
 }
