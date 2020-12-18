@@ -52,6 +52,13 @@ class IncomingMessage {
             }
         }
         
+        if localMessage.type == kLOCATION {
+            let locationItem = LocationMessage(location: CLLocation(latitude: localMessage.latitude, longitude: localMessage.longitude))
+            
+            mkMessage.kind = MessageKind.location(locationItem)
+            mkMessage.locationitem = locationItem 
+        }
+        
         return mkMessage
     }
 }

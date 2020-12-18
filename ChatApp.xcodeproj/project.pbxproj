@@ -24,6 +24,10 @@
 		A41F2B89256239D5004FE8A9 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41F2B88256239D5004FE8A9 /* MKMessage.swift */; };
 		A41F2B8D25623CAE004FE8A9 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41F2B8C25623CAE004FE8A9 /* LocalMessage.swift */; };
 		A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */; };
+		A430C1E1258B368C00CFE2AB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1E0258B368C00CFE2AB /* LocationManager.swift */; };
+		A430C1E4258B4D1A00CFE2AB /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1E3258B4D1A00CFE2AB /* LocationMessage.swift */; };
+		A430C1E7258B65EB00CFE2AB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1E6258B65EB00CFE2AB /* MapViewController.swift */; };
+		A430C1EA258C374100CFE2AB /* MapAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1E9258C374100CFE2AB /* MapAnotation.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
@@ -73,6 +77,10 @@
 		A41F2B88256239D5004FE8A9 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
 		A41F2B8C25623CAE004FE8A9 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessage.swift; sourceTree = "<group>"; };
 		A420F1DE25273DDB00646235 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A430C1E0258B368C00CFE2AB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A430C1E3258B4D1A00CFE2AB /* LocationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMessage.swift; sourceTree = "<group>"; };
+		A430C1E6258B65EB00CFE2AB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A430C1E9258C374100CFE2AB /* MapAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnotation.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -211,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
+				A430C1E6258B65EB00CFE2AB /* MapViewController.swift */,
 				A4977D2B25888D3600D3E037 /* ChatViewController */,
 			);
 			path = SecondaryViews;
@@ -221,6 +230,7 @@
 			children = (
 				A4977CF52587612C00D3E037 /* PhotoMessage.swift */,
 				A4977D2225887D8800D3E037 /* VideoMessage.swift */,
+				A430C1E3258B4D1A00CFE2AB /* LocationMessage.swift */,
 			);
 			path = MediaMessages;
 			sourceTree = "<group>";
@@ -255,6 +265,8 @@
 				A41F2B88256239D5004FE8A9 /* MKMessage.swift */,
 				A4B52DF32575D30C00FCDD27 /* OutgoingMessage.swift */,
 				A4E49BA1257A032A00E22BA8 /* IncomingMessage.swift */,
+				A430C1E0258B368C00CFE2AB /* LocationManager.swift */,
+				A430C1E9258C374100CFE2AB /* MapAnotation.swift */,
 				A4977D2025887D7A00D3E037 /* MediaMessages */,
 				A41F2B9025623CCE004FE8A9 /* RealmMessages */,
 			);
@@ -414,6 +426,7 @@
 				A41F2B8D25623CAE004FE8A9 /* LocalMessage.swift in Sources */,
 				A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */,
 				A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */,
+				A430C1EA258C374100CFE2AB /* MapAnotation.swift in Sources */,
 				A4ED15AF25612BC300C4FDA7 /* InputBarAccessoryViewDelgate.swift in Sources */,
 				A41B311B254F91C500DF83F1 /* FirebaseRecentListener.swift in Sources */,
 				A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */,
@@ -432,6 +445,7 @@
 				A47A672B2541A0E20028ECBC /* Extensions.swift in Sources */,
 				A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */,
 				A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */,
+				A430C1E4258B4D1A00CFE2AB /* LocationMessage.swift in Sources */,
 				A47A672E254254B90028ECBC /* Status.swift in Sources */,
 				A4E49BA2257A032A00E22BA8 /* IncomingMessage.swift in Sources */,
 				A472ECFE2553781900CADFA3 /* ChatViewController.swift in Sources */,
@@ -441,6 +455,7 @@
 				A4ED15A125612B3000C4FDA7 /* MessageDataSource.swift in Sources */,
 				A41B314725524BC200DF83F1 /* ChatsTableViewController.swift in Sources */,
 				A4E49B9F2579F5A000E22BA8 /* FirebaseMessageListener.swift in Sources */,
+				A430C1E7258B65EB00CFE2AB /* MapViewController.swift in Sources */,
 				A4B52D552574D58C00FCDD27 /* RealmManager.swift in Sources */,
 				A4ED15AC25612B9600C4FDA7 /* MessageLayoutDelegate.swift in Sources */,
 				A41B3118254E97D100DF83F1 /* StartChat.swift in Sources */,
@@ -448,6 +463,7 @@
 				A41750B7251F2BA900AF63E2 /* SceneDelegate.swift in Sources */,
 				A41B3115254C016C00DF83F1 /* RecentTableViewCell.swift in Sources */,
 				A41F2B89256239D5004FE8A9 /* MKMessage.swift in Sources */,
+				A430C1E1258B368C00CFE2AB /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
