@@ -14,6 +14,12 @@ class ChannelsTableViewController: UITableViewController {
     @IBOutlet weak var channelsSegmentOutlet: UISegmentedControl!
     
     
+    //MARK: - Variables
+    
+    var allchannels: [Channel] = []
+    var subscribedChannels: [Channel] = []
+    
+    
     //MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -25,14 +31,17 @@ class ChannelsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1 ///channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels.count : allchannels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChannelTableViewCell
+//        let channel = channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels[indexPath.row ] : allchannels[indexPath.row]
+//        
+//        cell.configure(channel: channel)
         
-        return UITableViewCell()
+        return cell
     }
     
     
