@@ -37,6 +37,7 @@
 		A430C201258DB8C700CFE2AB /* MyChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */; };
 		A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */; };
 		A430C20A258DC5D300CFE2AB /* FirebaseChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */; };
+		A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
@@ -99,6 +100,7 @@
 		A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChannelsTableViewController.swift; sourceTree = "<group>"; };
 		A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
 		A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChannelListener.swift; sourceTree = "<group>"; };
+		A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		A430C203258DB8D000CFE2AB /* ChannelsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */,
 				A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */,
 				A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */,
 			);
@@ -219,9 +222,9 @@
 		A439B363254678CE00878C6A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				A430C1FC258D9B0400CFE2AB /* ChannelTableViewCell.swift */,
 				A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */,
 				A41B3114254C016C00DF83F1 /* RecentTableViewCell.swift */,
-				A430C1FC258D9B0400CFE2AB /* ChannelTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				A4ED15A625612B6D00C4FDA7 /* MessageCellDelegate.swift in Sources */,
 				A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */,
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
+				A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */,
 				A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */,
 				A4CB960925208DE800422665 /* User.swift in Sources */,
 				A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */,

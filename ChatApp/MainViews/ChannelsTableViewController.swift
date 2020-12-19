@@ -25,8 +25,15 @@ class ChannelsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
-        self.title = "Channels"
         tableView.tableFooterView = UIView()
+        
+        self.title = "Channels"
+        self.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl = self.refreshControl
+        
+        
+        downloadAllChannels()
+        downloadSubscribedChannels()
     }
 
     // MARK: - Table view data source
@@ -51,5 +58,37 @@ class ChannelsTableViewController: UITableViewController {
     @IBAction func channelsSegmentValueChanged(_ sender: Any) {
         
         tableView.reloadData()
+    }
+    
+    
+    //MARK: - Download channels
+    
+    private func downloadAllChannels() {
+        
+        FirebaseChannelListener.shared.downloadAllChannels {(allChannels) in
+            
+            self.allchannels = allChannels
+   
+            if self.channelsSegmentOutlet.selectedSegmentIndex == 1 {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    private func downloadSubscribedChannels() {
+        
+    }
+    
+    
+    //MARK: - UIScroll view delegate
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if self.refreshControl!.isRefreshing {
+            self.downloadAllChannels()
+            self.refreshControl!.endRefreshing()
+        }
     }
 }
