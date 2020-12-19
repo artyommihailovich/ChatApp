@@ -26,6 +26,7 @@ class AddChannelTableViewController: UITableViewController {
     
     var channelId = UUID().uuidString
     
+    var channelToEdit: Channel?
     
     //MARK: - View life cycle
 
@@ -38,6 +39,9 @@ class AddChannelTableViewController: UITableViewController {
         configureGestureRecognizer()
         configureLeftBarButton()
         
+        if channelToEdit != nil {
+            configureEditingView()
+        }
     }
 
     
@@ -46,7 +50,7 @@ class AddChannelTableViewController: UITableViewController {
     @IBAction func savebuttonPressd(_ sender: Any) {
         
         if nameTextFieldOutlet.text != "" {
-            saveChannel()
+            channelToEdit != nil ? editChannel() : saveChannel()
         } else {
             ProgressHUD.showError("Channel name is empty!")
         }
@@ -80,13 +84,34 @@ class AddChannelTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.systemOrange, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
     }
     
+    private func configureEditingView() {
+        self.title = "Editing channel"
+        self.nameTextFieldOutlet.text = channelToEdit!.name
+        self.channelId = channelToEdit!.id
+        self.aboutTextViewOtlet.text = channelToEdit!.aboutChannel
+        self.avatarLink = channelToEdit!.avatarLink
+        
+        setAvatar(avatarLink: channelToEdit!.avatarLink)
+    }
+    
     
     //MARK: - Save channel
     
     private func saveChannel() {
         let channel = Channel(id: channelId, name: nameTextFieldOutlet.text!, adminId: User.currentId, memberIds: [User.currentId], avatarLink: avatarLink, aboutChannel: aboutTextViewOtlet.text)
         
-        FirebaseChannelListener.shared.addChannel(channel)
+        FirebaseChannelListener.shared.saveChannel(channel)
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func editChannel() {
+        
+        channelToEdit!.name = nameTextFieldOutlet.text!
+        channelToEdit?.aboutChannel = aboutTextViewOtlet.text
+        channelToEdit?.avatarLink = avatarLink
+
+        FirebaseChannelListener.shared.saveChannel(channelToEdit!)
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -110,13 +135,28 @@ class AddChannelTableViewController: UITableViewController {
     
     private func uploadAvatarImage(_ image: UIImage) {
         
-        var fileDirectory = "Avatars/" + "_\(channelId)" + ".jpg"
+        let fileDirectory = "Avatars/" + "_\(channelId)" + ".jpg"
         
         FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
             
             self.avatarLink = avatarLink ?? ""
             
             FileStorage.saveFileLocally(fileData: image.jpegData(compressionQuality: 0.8)! as NSData, fileName: self.channelId)
+        }
+    }
+    
+    private func setAvatar(avatarLink: String) {
+        
+        if avatarLink != "" {
+            FileStorage.downloadImage(imageUrl: avatarLink) { (avatarImage) in
+                
+                DispatchQueue.main.async {
+                    self.avatarImageviewOutlet.image = avatarImage?.circleMasked
+                }
+            }
+        } else {
+            
+            self.avatarImageviewOutlet.image = UIImage(named: "avatar")
         }
     }
 }

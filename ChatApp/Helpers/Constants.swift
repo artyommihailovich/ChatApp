@@ -30,3 +30,6 @@ public let kDATE = "date"
 public let kREADDATE = "date"
 
 public let kNUMBEROFMESSAGES = 12
+
+public let kADMINID = "adminId"
+public let kMEMBERIDS = "memberIds"

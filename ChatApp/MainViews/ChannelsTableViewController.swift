@@ -32,14 +32,15 @@ class ChannelsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 ///channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels.count : allchannels.count
+        
+        return channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels.count : allchannels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChannelTableViewCell
-//        let channel = channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels[indexPath.row ] : allchannels[indexPath.row]
-//        
-//        cell.configure(channel: channel)
+        let channel = channelsSegmentOutlet.selectedSegmentIndex == 0 ? subscribedChannels[indexPath.row ] : allchannels[indexPath.row]
+        
+        cell.configure(channel: channel)
         
         return cell
     }
@@ -49,5 +50,6 @@ class ChannelsTableViewController: UITableViewController {
     
     @IBAction func channelsSegmentValueChanged(_ sender: Any) {
         
+        tableView.reloadData()
     }
 }

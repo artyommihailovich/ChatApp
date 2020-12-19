@@ -30,7 +30,7 @@ class ChannelTableViewCell: UITableViewCell {
     func configure(channel: Channel) {
         nameLabelOutlet.text = channel.name
         aboutLabelOutlet.text = channel.aboutChannel
-        memberCountLabelOutlet.text = "\(channel.memberIds.count) \(String(describing: UIImage(systemName: "person.2", withConfiguration: UIImage.SymbolConfiguration(weight: .light))))"
+        memberCountLabelOutlet.text = "\(channel.memberIds.count) ⚇"
         lastMessageDateLabelOutlet.text = timeElapsed(channel.lastMessageDate ?? Date())
         lastMessageDateLabelOutlet.adjustsFontSizeToFitWidth = true
         setAvatar(avatarLink: channel.avatarLink)

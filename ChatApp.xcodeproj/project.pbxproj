@@ -172,11 +172,11 @@
 				A4CB960B25208DEC00422665 /* Model */,
 				A439B3662546796700878C6A /* MainViews */,
 				A439B36F25467A3000878C6A /* SecondaryViews */,
+				A439B363254678CE00878C6A /* CustomCells */,
 				A439B365254678F800878C6A /* LoginViews */,
 				A4C7A88625257E4A003892B6 /* Helpers */,
 				A439B3612546788000878C6A /* SettingsView */,
 				A4CB96152520A7FB00422665 /* FirebaseHelpers */,
-				A439B363254678CE00878C6A /* CustomCells */,
 				A41750B4251F2BA900AF63E2 /* AppDelegate.swift */,
 				A41750B6251F2BA900AF63E2 /* SceneDelegate.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
@@ -249,8 +249,8 @@
 			children = (
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
 				A430C1E6258B65EB00CFE2AB /* MapViewController.swift */,
-				A430C203258DB8D000CFE2AB /* ChannelsTableViewController */,
 				A4977D2B25888D3600D3E037 /* ChatViewController */,
+				A430C203258DB8D000CFE2AB /* ChannelsTableViewController */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
