@@ -31,6 +31,13 @@
 		A430C1ED258C447900CFE2AB /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1EC258C447900CFE2AB /* AudioRecorder.swift */; };
 		A430C1F0258C8F4A00CFE2AB /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1EF258C8F4A00CFE2AB /* AudioMessage.swift */; };
 		A430C1F3258C96E600CFE2AB /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1F2258C96E600CFE2AB /* BasicAudioController.swift */; };
+		A430C1F6258CB17500CFE2AB /* ChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */; };
+		A430C1F9258D7A6E00CFE2AB /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1F8258D7A6E00CFE2AB /* Channel.swift */; };
+		A430C1FD258D9B0400CFE2AB /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C1FC258D9B0400CFE2AB /* ChannelTableViewCell.swift */; };
+		A430C201258DB8C700CFE2AB /* MyChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */; };
+		A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */; };
+		A430C20A258DC5D300CFE2AB /* FirebaseChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */; };
+		A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
@@ -87,6 +94,13 @@
 		A430C1EC258C447900CFE2AB /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		A430C1EF258C8F4A00CFE2AB /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
 		A430C1F2258C96E600CFE2AB /* BasicAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
+		A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewController.swift; sourceTree = "<group>"; };
+		A430C1F8258D7A6E00CFE2AB /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		A430C1FC258D9B0400CFE2AB /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChannelsTableViewController.swift; sourceTree = "<group>"; };
+		A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
+		A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChannelListener.swift; sourceTree = "<group>"; };
+		A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
@@ -160,11 +174,11 @@
 				A4CB960B25208DEC00422665 /* Model */,
 				A439B3662546796700878C6A /* MainViews */,
 				A439B36F25467A3000878C6A /* SecondaryViews */,
+				A439B363254678CE00878C6A /* CustomCells */,
 				A439B365254678F800878C6A /* LoginViews */,
 				A4C7A88625257E4A003892B6 /* Helpers */,
 				A439B3612546788000878C6A /* SettingsView */,
 				A4CB96152520A7FB00422665 /* FirebaseHelpers */,
-				A439B363254678CE00878C6A /* CustomCells */,
 				A41750B4251F2BA900AF63E2 /* AppDelegate.swift */,
 				A41750B6251F2BA900AF63E2 /* SceneDelegate.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
@@ -185,6 +199,16 @@
 			path = RealmMessages;
 			sourceTree = "<group>";
 		};
+		A430C203258DB8D000CFE2AB /* ChannelsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */,
+				A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */,
+				A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */,
+			);
+			path = ChannelsTableViewController;
+			sourceTree = "<group>";
+		};
 		A439B3612546788000878C6A /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +222,7 @@
 		A439B363254678CE00878C6A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				A430C1FC258D9B0400CFE2AB /* ChannelTableViewCell.swift */,
 				A47A67332542A1EA0028ECBC /* UserTableViewCell.swift */,
 				A41B3114254C016C00DF83F1 /* RecentTableViewCell.swift */,
 			);
@@ -217,6 +242,7 @@
 			children = (
 				A47A67362542A2130028ECBC /* UsersTableViewController.swift */,
 				A41B314625524BC200DF83F1 /* ChatsTableViewController.swift */,
+				A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -227,6 +253,7 @@
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
 				A430C1E6258B65EB00CFE2AB /* MapViewController.swift */,
 				A4977D2B25888D3600D3E037 /* ChatViewController */,
+				A430C203258DB8D000CFE2AB /* ChannelsTableViewController */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -276,6 +303,7 @@
 				A430C1E9258C374100CFE2AB /* MapAnotation.swift */,
 				A430C1EC258C447900CFE2AB /* AudioRecorder.swift */,
 				A430C1F2258C96E600CFE2AB /* BasicAudioController.swift */,
+				A430C1F8258D7A6E00CFE2AB /* Channel.swift */,
 				A4977D2025887D7A00D3E037 /* MediaMessages */,
 				A41F2B9025623CCE004FE8A9 /* RealmMessages */,
 			);
@@ -290,6 +318,7 @@
 				A4E49B9E2579F5A000E22BA8 /* FirebaseMessageListener.swift */,
 				A4CB961D2520A91200422665 /* FirebaseUserListener.swift */,
 				A4DC6E5C2582FA870094E032 /* FirebaseTypingListener.swift */,
+				A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */,
 				A462E7CA252F25EA0050DCD9 /* FileStorage.swift */,
 			);
 			path = FirebaseHelpers;
@@ -445,6 +474,7 @@
 				A4ED15A625612B6D00C4FDA7 /* MessageCellDelegate.swift in Sources */,
 				A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */,
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
+				A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */,
 				A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */,
 				A4CB960925208DE800422665 /* User.swift in Sources */,
 				A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */,
@@ -452,7 +482,11 @@
 				A4B52DF42575D30C00FCDD27 /* OutgoingMessage.swift in Sources */,
 				A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */,
 				A4977D2325887D8800D3E037 /* VideoMessage.swift in Sources */,
+				A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */,
+				A430C1FD258D9B0400CFE2AB /* ChannelTableViewCell.swift in Sources */,
 				A4DC6E5D2582FA870094E032 /* FirebaseTypingListener.swift in Sources */,
+				A430C1F9258D7A6E00CFE2AB /* Channel.swift in Sources */,
+				A430C20A258DC5D300CFE2AB /* FirebaseChannelListener.swift in Sources */,
 				A47A672B2541A0E20028ECBC /* Extensions.swift in Sources */,
 				A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */,
 				A47A673125425C070028ECBC /* StatusTableViewController.swift in Sources */,
@@ -466,9 +500,11 @@
 				A4ED15A125612B3000C4FDA7 /* MessageDataSource.swift in Sources */,
 				A41B314725524BC200DF83F1 /* ChatsTableViewController.swift in Sources */,
 				A4E49B9F2579F5A000E22BA8 /* FirebaseMessageListener.swift in Sources */,
+				A430C1F6258CB17500CFE2AB /* ChannelsTableViewController.swift in Sources */,
 				A430C1E7258B65EB00CFE2AB /* MapViewController.swift in Sources */,
 				A4B52D552574D58C00FCDD27 /* RealmManager.swift in Sources */,
 				A4ED15AC25612B9600C4FDA7 /* MessageLayoutDelegate.swift in Sources */,
+				A430C201258DB8C700CFE2AB /* MyChannelsTableViewController.swift in Sources */,
 				A41B3118254E97D100DF83F1 /* StartChat.swift in Sources */,
 				A4CB961E2520A91200422665 /* FirebaseUserListener.swift in Sources */,
 				A41750B7251F2BA900AF63E2 /* SceneDelegate.swift in Sources */,
