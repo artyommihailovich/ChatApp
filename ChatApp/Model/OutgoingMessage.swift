@@ -48,6 +48,8 @@ class OutgoingMessage {
             sendAudioMessage(message: message, audioFileName: audio!, audioDuration: audioDuration, memberIds: memberIds)
         }
         
+        PushNotificationService.shared.sendPushNotificationTo(userIds: removeCurrentUserFrom(userIds: memberIds), body: message.message, chatRoomId: chatId)
+        
         FirebaseRecentListener.shared.updateRecents(chatRoomid: chatId, lastMessage: message.message)
     }
     
@@ -90,7 +92,7 @@ class OutgoingMessage {
             sendAudioMessage(message: message, audioFileName: audio!, audioDuration: audioDuration, memberIds: channel.memberIds, channel: channel)
         }
         
-        //Send push notification
+        PushNotificationService.shared.sendPushNotificationTo(userIds: removeCurrentUserFrom(userIds: channel.memberIds), body: message.message, channel: channel, chatRoomId: channel.id)
         
         channel.lastMessageDate = Date()
         FirebaseChannelListener.shared.saveChannel(channel)

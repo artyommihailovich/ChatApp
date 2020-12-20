@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         firstCheckRun()
+        Messaging.messaging().delegate = self
+        requestPushNotificationPermission()
         LocationManager.shared.startUpdating()
+        application.registerForRemoteNotifications()
+        
         return true
     }
 
@@ -40,6 +45,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    //MARK: - Remote notification
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notification ", error.localizedDescription)
+    }
+    
+    private func requestPushNotificationPermission() {
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOption:  UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOption) { (_, _) in
+            
+        }
+    }
+    
+    private func updateUserPushId(newPushId: String) {
+         
+        if var user = User.currentUser {
+            user.pushId = newPushId
+            saveUserLocally(user)
+            FirebaseUserListener.shared.updateUserInFirebase(user)
+        }
+    }
+    
+    
     //MARK: - First run
     
     private func firstCheckRun() {
@@ -52,5 +88,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             userDefaults.synchronize()
         }
+    }
+}
+
+
+    //MARK: - Extensions
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        completionHandler()
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        updateUserPushId(newPushId: fcmToken)
     }
 }

@@ -11,6 +11,8 @@ let userDefaults = UserDefaults.standard
 
 public let kCURRENTUSER = "currentUser"
 public let kFILEREFERENCE = "gs://chatapp-b5e53.appspot.com"
+public let kSERVERKEY = "AAAAprkxPxc:APA91bFDql0exR4g1tqz-vZBYYm-dE-cXXDRaJN9fDP4rW8SAyz_u423suzvSfLdOZ3fcK0wMTqaDm91ak7KJiIEkTq_bBNP3EuHqpuTYvPJvmNu6g5Hzq_oiWJHvTGB-zWV1kpwbhPO"
+
 public let kSTATUS = "status"
 public let kFIRSTRUN = "firstRUN"
 
