@@ -38,6 +38,7 @@
 		A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */; };
 		A430C20A258DC5D300CFE2AB /* FirebaseChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */; };
 		A430C234258E19AA00CFE2AB /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */; };
+		A433B97A258F683800082039 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433B979258F683800082039 /* PushNotificationService.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
 		A448F7B8258F113800DD558D /* ChannelChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F7B7258F113800DD558D /* ChannelChatViewController.swift */; };
@@ -102,6 +103,8 @@
 		A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
 		A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChannelListener.swift; sourceTree = "<group>"; };
 		A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
+		A433B976258F575600082039 /* ChatApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatApp.entitlements; sourceTree = "<group>"; };
+		A433B979258F683800082039 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		A448F7B7258F113800DD558D /* ChannelChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 		A41750B3251F2BA900AF63E2 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				A433B976258F575600082039 /* ChatApp.entitlements */,
 				A4CB960B25208DEC00422665 /* Model */,
 				A439B3662546796700878C6A /* MainViews */,
 				A439B36F25467A3000878C6A /* SecondaryViews */,
@@ -323,6 +327,7 @@
 				A4DC6E5C2582FA870094E032 /* FirebaseTypingListener.swift */,
 				A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */,
 				A462E7CA252F25EA0050DCD9 /* FileStorage.swift */,
+				A433B979258F683800082039 /* PushNotificationService.swift */,
 			);
 			path = FirebaseHelpers;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				A4CB96132520A6C100422665 /* FCollectionReference.swift in Sources */,
 				A430C1EA258C374100CFE2AB /* MapAnotation.swift in Sources */,
 				A4ED15AF25612BC300C4FDA7 /* InputBarAccessoryViewDelgate.swift in Sources */,
+				A433B97A258F683800082039 /* PushNotificationService.swift in Sources */,
 				A41B311B254F91C500DF83F1 /* FirebaseRecentListener.swift in Sources */,
 				A47A67372542A2130028ECBC /* UsersTableViewController.swift in Sources */,
 				A41F2B85256231A8004FE8A9 /* MessageKitDefaults.swift in Sources */,
@@ -663,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SWPDQ88TSM;
 				INFOPLIST_FILE = ChatApp/Info.plist;
@@ -683,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatApp/ChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SWPDQ88TSM;
 				INFOPLIST_FILE = ChatApp/Info.plist;

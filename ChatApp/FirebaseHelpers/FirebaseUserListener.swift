@@ -186,4 +186,17 @@ class FirebaseUserListener {
             }
         }
     }
+    
+    
+    //MARK: - Update user in Firebase
+    
+    func updateUserInFirebase(_ user: User) {
+        
+        do {
+           let _ = try firebaseReference(.User).document(user.id).setData(from: user)
+        } catch  {
+            print("Error updating user ", error.localizedDescription)
+        }
+    }
+    
 }

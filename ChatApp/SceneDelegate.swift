@@ -17,21 +17,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         autoLogin()
+        resetBudge()
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
+    func sceneDidDisconnect(_ scene: UIScene) {
+        resetBudge()
+    }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         LocationManager.shared.startUpdating()
+        resetBudge()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
         LocationManager.shared.stopUpdating()
     }
     
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        resetBudge()
+    }
+    
     func sceneDidEnterBackground(_ scene: UIScene) {
         LocationManager.shared.stopUpdating()
+        resetBudge()
     }
 
     
@@ -56,6 +66,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MainView") as! UITabBarController
         
         self.window?.rootViewController = mainView
+    }
+    
+    private func resetBudge() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 
