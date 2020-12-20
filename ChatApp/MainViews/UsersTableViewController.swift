@@ -29,6 +29,7 @@ class UsersTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         setupSearchController()
         downloadUsers()
+        configureBackButton()
         //createDummyUsers()
     }
 
@@ -36,6 +37,20 @@ class UsersTableViewController: UITableViewController {
         super.viewWillAppear(true)
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    //MARK: - Configuretion
+    
+    private func configureBackButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.systemOrange, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
+    }
+    
+    
+    //MARK: - Actions
+    
+    @objc
+    func backButtonPressed() {
+        self.navigationController?.popViewController(animated: false)
     }
     
     
@@ -74,7 +89,7 @@ class UsersTableViewController: UITableViewController {
         
         let user = searchController.isActive ? filteredUsers[indexPath.row] : allUsers[indexPath.row]
         
-        showUserPrifile(user)
+        showUserProfile(user)
     }
     
     
@@ -125,7 +140,7 @@ class UsersTableViewController: UITableViewController {
     
     //MARK: - Navigation
     
-    private func showUserPrifile(_ user: User) {
+    private func showUserProfile(_ user: User) {
         let profileView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ProfileView") as! ProfileTableViewController
         
         profileView.user = user
@@ -135,6 +150,7 @@ class UsersTableViewController: UITableViewController {
 }
 
 
+    //MARK: - Extensions
 
 extension UsersTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {

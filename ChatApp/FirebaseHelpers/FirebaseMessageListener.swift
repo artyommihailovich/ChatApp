@@ -130,6 +130,13 @@ class FirebaseMessageListener  {
         }
     }
     
+    func addChannelMessage(_ message: LocalMessage, channel: Channel) {
+        do {
+            let _ = try firebaseReference(.Messages).document(channel.id).collection(channel.id).document(message.id).setData(from: message)
+        } catch  {
+            print("Error saving message! ", error.localizedDescription)
+        }
+    }
     
     //Update message status
     func updateMessageInFirebase(_ message: LocalMessage, memberIds: [String] ) {
@@ -143,7 +150,10 @@ class FirebaseMessageListener  {
     
     func removeListeners() {
         self.newChatListener.remove()
-       // self.updateChatListener.remove()
+        
+        if self.updateChatListener != nil {
+            self.updateChatListener.remove()
+        }
     }
     
 }
