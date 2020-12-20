@@ -37,9 +37,10 @@
 		A430C201258DB8C700CFE2AB /* MyChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */; };
 		A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */; };
 		A430C20A258DC5D300CFE2AB /* FirebaseChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */; };
-		A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */; };
+		A430C234258E19AA00CFE2AB /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */; };
 		A434C9BB2536C633000A5F60 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */; };
 		A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439B36B25467A2500878C6A /* ProfileTableViewController.swift */; };
+		A448F7B8258F113800DD558D /* ChannelChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A448F7B7258F113800DD558D /* ChannelChatViewController.swift */; };
 		A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462E7CA252F25EA0050DCD9 /* FileStorage.swift */; };
 		A472BB86252C6A3700BA26C8 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */; };
 		A472ECFE2553781900CADFA3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472ECFD2553781900CADFA3 /* ChatViewController.swift */; };
@@ -100,9 +101,10 @@
 		A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChannelsTableViewController.swift; sourceTree = "<group>"; };
 		A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
 		A430C209258DC5D300CFE2AB /* FirebaseChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChannelListener.swift; sourceTree = "<group>"; };
-		A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewController.swift; sourceTree = "<group>"; };
+		A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
 		A434C9BA2536C633000A5F60 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		A439B36B25467A2500878C6A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		A448F7B7258F113800DD558D /* ChannelChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatViewController.swift; sourceTree = "<group>"; };
 		A462E7CA252F25EA0050DCD9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		A472BB85252C6A3700BA26C8 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		A472ECFD2553781900CADFA3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +204,7 @@
 		A430C203258DB8D000CFE2AB /* ChannelsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A430C233258E19A900CFE2AB /* ChannelTableViewController.swift */,
+				A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */,
 				A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */,
 				A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */,
 			);
@@ -252,6 +254,7 @@
 			children = (
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
 				A430C1E6258B65EB00CFE2AB /* MapViewController.swift */,
+				A448F7B7258F113800DD558D /* ChannelChatViewController.swift */,
 				A4977D2B25888D3600D3E037 /* ChatViewController */,
 				A430C203258DB8D000CFE2AB /* ChannelsTableViewController */,
 			);
@@ -474,12 +477,13 @@
 				A4ED15A625612B6D00C4FDA7 /* MessageCellDelegate.swift in Sources */,
 				A462E7CB252F25EA0050DCD9 /* FileStorage.swift in Sources */,
 				A4CB96102520939E00422665 /* Constants.swift in Sources */,
-				A430C234258E19AA00CFE2AB /* ChannelTableViewController.swift in Sources */,
+				A430C234258E19AA00CFE2AB /* ChannelDetailViewController.swift in Sources */,
 				A47A67342542A1EA0028ECBC /* UserTableViewCell.swift in Sources */,
 				A4CB960925208DE800422665 /* User.swift in Sources */,
 				A439B36C25467A2500878C6A /* ProfileTableViewController.swift in Sources */,
 				A41750B9251F2BA900AF63E2 /* LoginViewController.swift in Sources */,
 				A4B52DF42575D30C00FCDD27 /* OutgoingMessage.swift in Sources */,
+				A448F7B8258F113800DD558D /* ChannelChatViewController.swift in Sources */,
 				A420F1DF25273DDB00646235 /* SettingsTableViewController.swift in Sources */,
 				A4977D2325887D8800D3E037 /* VideoMessage.swift in Sources */,
 				A430C207258DB8E700CFE2AB /* AddChannelTableViewController.swift in Sources */,
