@@ -14,7 +14,6 @@ Chat application with the ability to send text messages, user location, voice me
 ## used pods
    
 #####  ⎔ MessageKit
-#####  ⎔ RealmSwift
 #####  ⎔ Gallery
 #####  ⎔ RealmSwift
 #####  ⎔ ProgressHUD
