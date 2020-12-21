@@ -65,7 +65,7 @@ func createDummyUsers() {
     
     print("Creating dummy users")
     
-    let names = ["Ignat Voyna", "Egor Rezanov", "Ivan Novii", "Anton Bychok", "Sheck Sheck"]
+    let names = ["Ignat Voyna", "Egor Rezanov", "Ivan Novii", "Anton Bychok", "Vadim Galimov"]
     
     var imageIndex = 1
     var userIndex = 1
