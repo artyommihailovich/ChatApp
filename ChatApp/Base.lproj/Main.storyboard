@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0e-uX-uk8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4AT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0e-uX-uk8">
                                 <rect key="frame" x="16" y="64" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ua4-t1-ST6"/>
@@ -129,14 +129,6 @@
                                     <action selector="resendEmailButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="USh-Kp-MSv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPE-KU-2fg">
-                                <rect key="frame" x="40.666666666666657" y="327" width="294" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" image="loginButton"/>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgf-Ql-lz7"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-zm-FPy">
                                 <rect key="frame" x="89.666666666666686" y="750" width="196" height="28"/>
                                 <subviews>
@@ -158,6 +150,18 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPE-KU-2fg">
+                                <rect key="frame" x="45" y="384" width="285" height="44.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44.329999999999998" id="diC-jc-74C"/>
+                                    <constraint firstAttribute="width" constant="285" id="qV6-el-fEC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" image="loginButton"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgf-Ql-lz7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -172,7 +176,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i0e-uX-uk8" secondAttribute="trailing" constant="16" id="Vcz-gG-mDa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2ER-ml-wav" secondAttribute="trailing" constant="16" id="Vuc-WZ-3pf"/>
                             <constraint firstItem="ogL-zm-FPy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YBZ-ZT-ma3"/>
-                            <constraint firstItem="LPE-KU-2fg" firstAttribute="top" secondItem="0Df-jP-7hA" secondAttribute="bottom" constant="35" id="YTi-Ru-Vg9"/>
+                            <constraint firstItem="LPE-KU-2fg" firstAttribute="top" secondItem="0Df-jP-7hA" secondAttribute="bottom" constant="92" id="YTi-Ru-Vg9"/>
                             <constraint firstItem="i0e-uX-uk8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kHY-d4-8S6"/>
                             <constraint firstItem="6cg-LW-j2C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="okL-t1-G8G"/>
                             <constraint firstItem="LPE-KU-2fg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="psN-Y4-0QH"/>
@@ -265,7 +269,6 @@
                                         <constraint firstAttribute="trailing" secondItem="Gvp-nj-2dJ" secondAttribute="trailing" id="xN0-zX-AKD"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="TableViewCellColor"/>
                                 <connections>
                                     <outlet property="avatarImageView" destination="Yeq-yD-yEu" id="azj-yv-BfN"/>
                                     <outlet property="statusLabel" destination="sH3-WS-k1M" id="Dcn-15-uvs"/>
@@ -1388,16 +1391,13 @@
         <image name="avatar" width="184" height="184"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="lineweight" catalog="system" width="128" height="110"/>
-        <image name="loginButton" width="294" height="62"/>
+        <image name="loginButton" width="285.33334350585938" height="44.333332061767578"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="TableViewBackgroundColor">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TableViewCellColor">
-            <color red="0.99599999189376831" green="0.99599999189376831" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="label">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

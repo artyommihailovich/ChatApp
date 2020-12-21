@@ -176,20 +176,18 @@
 		A41750B3251F2BA900AF63E2 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				A433B976258F575600082039 /* ChatApp.entitlements */,
 				A4CB960B25208DEC00422665 /* Model */,
 				A439B3662546796700878C6A /* MainViews */,
 				A439B36F25467A3000878C6A /* SecondaryViews */,
 				A439B363254678CE00878C6A /* CustomCells */,
-				A439B365254678F800878C6A /* LoginViews */,
-				A4C7A88625257E4A003892B6 /* Helpers */,
-				A439B3612546788000878C6A /* SettingsView */,
 				A4CB96152520A7FB00422665 /* FirebaseHelpers */,
+				A4C7A88625257E4A003892B6 /* Helpers */,
 				A41750B4251F2BA900AF63E2 /* AppDelegate.swift */,
 				A41750B6251F2BA900AF63E2 /* SceneDelegate.swift */,
 				A41750BA251F2BA900AF63E2 /* Main.storyboard */,
 				A41750BD251F2BAB00AF63E2 /* Assets.xcassets */,
 				A41750BF251F2BAB00AF63E2 /* LaunchScreen.storyboard */,
+				A433B976258F575600082039 /* ChatApp.entitlements */,
 				A41750EA251F30BC00AF63E2 /* GoogleService-Info.plist */,
 				A41750C2251F2BAB00AF63E2 /* Info.plist */,
 			);
@@ -203,16 +201,6 @@
 				A4B52D542574D58C00FCDD27 /* RealmManager.swift */,
 			);
 			path = RealmMessages;
-			sourceTree = "<group>";
-		};
-		A430C203258DB8D000CFE2AB /* ChannelsTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */,
-				A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */,
-				A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */,
-			);
-			path = ChannelsTableViewController;
 			sourceTree = "<group>";
 		};
 		A439B3612546788000878C6A /* SettingsView */ = {
@@ -235,20 +223,22 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		A439B365254678F800878C6A /* LoginViews */ = {
+		A439B365254678F800878C6A /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
 				A41750B8251F2BA900AF63E2 /* LoginViewController.swift */,
 			);
-			path = LoginViews;
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		A439B3662546796700878C6A /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				A439B365254678F800878C6A /* LoginView */,
 				A47A67362542A2130028ECBC /* UsersTableViewController.swift */,
 				A41B314625524BC200DF83F1 /* ChatsTableViewController.swift */,
 				A430C1F5258CB17500CFE2AB /* ChannelsTableViewController.swift */,
+				A439B3612546788000878C6A /* SettingsView */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -256,11 +246,14 @@
 		A439B36F25467A3000878C6A /* SecondaryViews */ = {
 			isa = PBXGroup;
 			children = (
+				A472ECFD2553781900CADFA3 /* ChatViewController.swift */,
 				A439B36B25467A2500878C6A /* ProfileTableViewController.swift */,
 				A430C1E6258B65EB00CFE2AB /* MapViewController.swift */,
 				A448F7B7258F113800DD558D /* ChannelChatViewController.swift */,
-				A4977D2B25888D3600D3E037 /* ChatViewController */,
-				A430C203258DB8D000CFE2AB /* ChannelsTableViewController */,
+				A430C233258E19A900CFE2AB /* ChannelDetailViewController.swift */,
+				A430C200258DB8C700CFE2AB /* MyChannelsTableViewController.swift */,
+				A430C206258DB8E700CFE2AB /* AddChannelTableViewController.swift */,
+				A4ED15A325612B4700C4FDA7 /* ChatViewExtensions */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -274,15 +267,6 @@
 				A430C1EF258C8F4A00CFE2AB /* AudioMessage.swift */,
 			);
 			path = MediaMessages;
-			sourceTree = "<group>";
-		};
-		A4977D2B25888D3600D3E037 /* ChatViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A472ECFD2553781900CADFA3 /* ChatViewController.swift */,
-				A4ED15A325612B4700C4FDA7 /* ChatViewExtensions */,
-			);
-			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 		A4C7A88625257E4A003892B6 /* Helpers */ = {
