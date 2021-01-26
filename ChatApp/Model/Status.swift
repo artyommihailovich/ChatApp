@@ -11,7 +11,7 @@ enum Status: String, CaseIterable {
     case Available = "Available"
     case InYogaClass = "In yoga class"
     case Busy = "Busy"
-    case AtTheCode = "At the code 👨🏼‍💻"
+    case AtTheCode = "👨🏼‍💻"
     case AtTheMovies = "At the Movies"
     case BatteryAboutToDie = "Battery about to die"
     case CanNotTalk = "Can't talk"
@@ -20,6 +20,5 @@ enum Status: String, CaseIterable {
     case Sleeping = "Sleeping"
     case UrgentCallsOnly = "Urgent calls only"
     case LeftToSkate = "Left to skate"
-    case WaitingForBerningMan = "Waiting for Berning Man"
-    case ShareYumYum = "Share yum yum"
+    case WaitingForBurningMan = "Waiting for Burning Man"
 }

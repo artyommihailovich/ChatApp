@@ -29,7 +29,7 @@ class UsersTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         setupSearchController()
         downloadUsers()
-        configureBackButton()
+       // configureBackButton()
         //createDummyUsers()
     }
 
@@ -41,9 +41,9 @@ class UsersTableViewController: UITableViewController {
     
     //MARK: - Configuretion
     
-    private func configureBackButton() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.systemOrange, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
-    }
+//    private func configureBackButton() {
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.systemOrange, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
+//    }
     
     
     //MARK: - Actions
